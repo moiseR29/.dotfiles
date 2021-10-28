@@ -1,0 +1,1 @@
+nmap <leader>fs <Plug>(easymotion-s2)
