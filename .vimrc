@@ -1,1 +1,1 @@
-so $HOME/.dotfiles/configs/nvim/init.vim
+so $HOME/.dotfiles/.config/nvim/init.vim

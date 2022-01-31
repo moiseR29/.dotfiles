@@ -45,6 +45,14 @@
     "editor.formatOnSave": true,
     "editor.defaultFormatter": "vscode.html-language-features"
   },
+  "[terraform]": {
+    "editor.defaultFormatter": "hashicorp.terraform",
+    "editor.formatOnSave": true,
+  },
+  "[terraform-vars]": {
+    "editor.defaultFormatter": "hashicorp.terraform",
+    "editor.formatOnSave": true,
+  },
   "workbench.iconTheme": "material-icon-theme",
   "terminal.integrated.shell.linux": "/usr/bin/zsh",
   "editor.tabSize": 2,
@@ -201,5 +209,13 @@
   "vim.vimrc.enable": true,
   "vim.vimrc.path": "$HOME/.vimrc",
   "editor.detectIndentation": true,
-  "window.zoomLevel": -1
+  "redhat.telemetry.enabled": true,
+  "window.zoomLevel": -1,
+  "todo-tree.highlights.customHighlight": {
+    "CHECK": {
+      "foreground": "black",
+      "iconColour": "yellow",
+      "gutterIcon": true
+    }
+  }
 }
