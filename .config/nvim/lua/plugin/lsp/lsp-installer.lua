@@ -5,19 +5,20 @@ end
 
 lsp_installer.on_server_ready(function(server)
 	local opts = {
-		on_attach = require("plugin.config.lsp.handlers").on_attach,
-		capabilities = require("plugin.config.lsp.handlers").capabilities,
+		on_attach = require("plugin.lsp.handlers").on_attach,
+		capabilities = require("plugin.lsp.handlers").capabilities,
 	}
 
 	 if server.name == "jsonls" then
-	 	local jsonls_opts = require("plugin.config.lsp.settings.jsonls")
+	 	local jsonls_opts = require("plugin.lsp.settings.jsonls")
 	 	opts = vim.tbl_deep_extend("force", jsonls_opts, opts)
 	 end
 
 	 if server.name == "sumneko_lua" then
-	 	local sumneko_opts = require("plugin.config.lsp.settings.sumneko_lua")
+	 	local sumneko_opts = require("plugin.lsp.settings.sumneko_lua")
 	 	opts = vim.tbl_deep_extend("force", sumneko_opts, opts)
 	 end
 
 	server:setup(opts)
+  vim.cmd [[ do User LspAttachBuffers ]]
 end)
