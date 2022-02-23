@@ -16,5 +16,35 @@ lsp_installer.on_server_ready(function(server)
 	 	opts = vim.tbl_deep_extend("force", sumneko_opts, opts)
 	 end
 
+	 if server.name == "dockerls" then
+	 	local dockerls_opts = require("plugin.lsp.settings.dockerls")
+	 	opts = vim.tbl_deep_extend("force", dockerls_opts, opts)
+	 end
+
+	 if server.name == "terraformls" then
+	 	local terraformls_opts = require("plugin.lsp.settings.terraformls")
+	 	opts = vim.tbl_deep_extend("force", terraformls_opts, opts)
+	 end
+
+	 if server.name == "tflint" then
+	 	local tflint_opts = require("plugin.lsp.settings.tflint")
+	 	opts = vim.tbl_deep_extend("force", tflint_opts, opts)
+	 end
+
+	 if server.name == "bashls" then
+	 	local bashls_opts = require("plugin.lsp.settings.bashls")
+	 	opts = vim.tbl_deep_extend("force", bashls_opts, opts)
+	 end
+
+	 if server.name == "sqlls" then
+	 	local sqlls_opts = require("plugin.lsp.settings.sqlls")
+	 	opts = vim.tbl_deep_extend("force", sqlls_opts, opts)
+	 end
+
+	 if server.name == "grammarly" then
+	 	local grammarly_opts = require("plugin.lsp.settings.grammarly")
+	 	opts = vim.tbl_deep_extend("force", grammarly_opts, opts)
+	 end
+
 	server:setup(opts)
 end)
