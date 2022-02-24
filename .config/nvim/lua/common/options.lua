@@ -21,7 +21,8 @@ local options = {
   softtabstop = 2,
   tabstop = 2,
   completeopt = { "menuone", "noselect" },
-  guifont="Meslo LG S DZ 12"
+  guifont="Meslo LG S DZ 12",
+  termguicolors = true
 }
 
 for k,v in pairs(options) do

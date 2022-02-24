@@ -1,11 +1,11 @@
 local u = require("utils")
 
 -- reset space key
-u.keymap("", "<Space>", "<Nop>", opts)
+u.keymap("", "<Space>", "<Nop>")
 
 -- space as a leader
-vim.g.mapleader = " "
-vim.g.maplocalleader = " "
+u.global("mapleader", " ")
+u.global("maplocalleader", " ")
 
 -- reset source
 u.keymap("n", "<F5>", ":source ~/.vimrc<CR>")
@@ -32,19 +32,19 @@ u.keymap("n", "<down>", ":resize +3<CR>")
 -- u.keymap("n", "<c-t>", ":split<CR>:ter<CR>")
 
 -- create buffer
-u.keymap("n", "<leade>t", ":tabe<CR>")
+u.keymap("n", "<leader>t", ":tabe<CR>")
 
 -- close buffer
-u.keymap("n", "<leade>ww", ":bdelete<CR>")
+u.keymap("n", "<leader>ww", ":bdelete<CR>")
 
 -- move between buffers
-u.keymap("n", "<leade>l", ":tabn<CR>")
-u.keymap("n", "<leade>h", ":tabp<CR>")
-u.keymap("n", "<leade>1", ":bp<CR>")
-u.keymap("n", "<leade>2", ":bn<CR>")
+u.keymap("n", "<leader>l", ":tabn<CR>")
+u.keymap("n", "<leader>h", ":tabp<CR>")
+u.keymap("n", "<leader>1", ":bp<CR>")
+u.keymap("n", "<leader>2", ":bn<CR>")
 
 -- find file
-u.keymap("n", "<leade>ff", ":File")
+u.keymap("n", "<leader>ff", ":File ")
 
 -- save
 u.keymap("n", "<leader>w", ":w<CR>")

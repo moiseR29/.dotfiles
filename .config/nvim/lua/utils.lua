@@ -10,5 +10,9 @@ function M.buf_keymap(buff, mode, key, result, options)
   vim.api.nvim_buf_set_keymap(buff, mode, key, result, options)
 end
 
+function M.global(key, value)
+  vim.g[key] = value
+end
+
 _G.utils = M
 return M
