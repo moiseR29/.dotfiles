@@ -21,11 +21,6 @@ lsp_installer.on_server_ready(function(server)
 	 	opts = vim.tbl_deep_extend("force", dockerls_opts, opts)
 	 end
 
-	 if server.name == "terraformls" then
-	 	local terraformls_opts = require("plugin.lsp.settings.terraformls")
-	 	opts = vim.tbl_deep_extend("force", terraformls_opts, opts)
-	 end
-
 	 if server.name == "tflint" then
 	 	local tflint_opts = require("plugin.lsp.settings.tflint")
 	 	opts = vim.tbl_deep_extend("force", tflint_opts, opts)
@@ -46,5 +41,13 @@ lsp_installer.on_server_ready(function(server)
 	 	opts = vim.tbl_deep_extend("force", grammarly_opts, opts)
 	 end
 
+	 if server.name == "yamlls" then
+	 	local yamlls_opts = require("plugin.lsp.settings.yamlls")
+	 	opts = vim.tbl_deep_extend("force", yamlls_opts, opts)
+	 end
+
 	server:setup(opts)
+
+  -- CHARGE THE MANUAL PLUGINS
+  require("plugin.lsp.settings.terraformls")
 end)

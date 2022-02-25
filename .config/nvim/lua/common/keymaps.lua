@@ -56,3 +56,6 @@ u.keymap("i", "<A-j>", "<Esc>:m .+1<CR>==gi")
 u.keymap("i", "<A-k>", "<Esc>:m .-2<CR>==gi")
 u.keymap("v", "<A-j>", ":m '>+1<CR>gv=gv")
 u.keymap("v", "<A-k>", ":m '<-2<CR>gv=gv")
+
+u.keymap("n", "<leader>qq", ":q!<CR>")
+u.keymap("n", "<leader>wq", ":wq!<CR>")

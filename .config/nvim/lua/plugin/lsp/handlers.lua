@@ -68,7 +68,7 @@ local function lsp_keymaps(bufnr)
   u.keymap('n', '<leader>vp', ':lua vim.lsp.diagnostic.goto_prev({ border = "rounded" })<cr>')
   u.keymap('n', '<leader>vca', ':lua vim.lsp.buf.code_action()<cr>')
   u.keymap('n', '<leader>vf', ':lua vim.lsp.buf.formatting()<cr>')
-  
+
   u.buf_keymap(bufnr, "n", "<leader>q", "<cmd>lua vim.diagnostic.setloclist()<CR>")
   u.buf_keymap(bufnr, "n", "gl", "<cmd>lua vim.lsp.diagnostic.show_line_diagnostics({ border = 'rounded' })<CR>")
 

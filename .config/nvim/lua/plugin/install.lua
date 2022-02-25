@@ -20,6 +20,8 @@ Plug('mg979/vim-visual-multi',{branch='master'})                  -- plugin for 
 Plug('nvim-treesitter/nvim-treesitter',{['do'] = ':TSUpdate'})    -- themes for langauges
 Plug('kyazdani42/nvim-tree.lua')                                  -- tree panel files
 
+Plug('jremmen/vim-ripgrep')                                       -- a good search
+
 Plug('nvim-lua/plenary.nvim')                                     -- funny finder´s dependency
 Plug('nvim-telescope/telescope.nvim')                             -- funny finder
 
@@ -36,6 +38,5 @@ Plug("hrsh7th/cmp-cmdline")                                       -- cmdline com
 Plug("L3MON4D3/LuaSnip")                                          -- library snippets
 
 Plug("b0o/schemastore.nvim")                                      -- schemas for jsonls
-
 
 vim.call('plug#end')
