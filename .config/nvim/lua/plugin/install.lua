@@ -42,4 +42,6 @@ Plug("L3MON4D3/LuaSnip")                                          -- library sni
 
 Plug("b0o/schemastore.nvim")                                      -- schemas for jsonls
 
+Plug("jose-elias-alvarez/null-ls.nvim")                           -- formatters and linters
+
 vim.call('plug#end')

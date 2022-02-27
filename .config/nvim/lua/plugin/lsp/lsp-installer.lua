@@ -50,4 +50,5 @@ lsp_installer.on_server_ready(function(server)
 
   -- CHARGE THE MANUAL PLUGINS
   require("plugin.lsp.settings.terraformls")
+  require("plugin.lsp.settings.nullls").setup(opts)
 end)
