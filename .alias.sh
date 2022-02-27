@@ -26,5 +26,6 @@ if [ $(which exa) ]; then
   alias tree='exa -T'
 fi
 
+export GOBIN=/usr/local/go/bin
 export GOPATH=$HOME/code/me/go
-export PATH=$PATH:/usr/local/go/bin:$GOPATH/bin
+export PATH=$PATH:$GOBIN:$GOPATH/bin

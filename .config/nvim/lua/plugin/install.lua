@@ -28,6 +28,8 @@ Plug('nvim-telescope/telescope.nvim')                             -- funny finde
 
 Plug('akinsho/toggleterm.nvim')                                   --Terminal
 
+Plug('fatih/vim-go')                                              -- Go plugin
+
 Plug("neovim/nvim-lspconfig")                                     -- Enable LSP
 Plug("williamboman/nvim-lsp-installer")                           -- simple to use language server installer
 

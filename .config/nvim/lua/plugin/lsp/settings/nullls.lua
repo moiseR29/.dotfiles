@@ -9,23 +9,21 @@ local actions = nls.builtins.code_actions
 
 local M = {}
 
-local sources = {}
-
-
 --formatting.autopep8,
 --formatting.stylua,
 
-local JsTsSources = {
-    formatting.prettier.with({
-        prefer_local = "./node_modules/.bin"
-    }),
-    diagnostics.eslint.with({
-        prefer_local = "./node_modules/.bin"
-    }),
-    actions.eslint,
-}
+local sources = {
+  formatting.prettier.with({
+    prefer_local = "./node_modules/.bin"
+  }),
+  diagnostics.eslint.with({
+    prefer_local = "./node_modules/.bin"
+  }),
+  actions.eslint,
 
-sources = u.merge(JsTsSources, sources)
+  --formatting.gofmt,
+  --diagnostics.gofmt
+}
 
 function M.setup(opts)
   nls.setup {
