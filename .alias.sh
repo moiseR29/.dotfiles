@@ -16,9 +16,6 @@ alias docker_perm="sudo chown $USER /var/run/docker.sock"
 alias kubectl="sudo kubectl"
 alias minikube="sudo minikube"
 
-# path alias
-PATH=$PATH:/usr/local/go/bin
-
 # Conditional Alias
 if [ $(which bat) ]; then
   alias cat='bat --style=plain --paging=never'
@@ -28,3 +25,6 @@ if [ $(which exa) ]; then
   alias ls='exa --group-directories-first'
   alias tree='exa -T'
 fi
+
+export GOPATH=$HOME/code/me/go
+export PATH=$PATH:/usr/local/go/bin:$GOPATH/bin

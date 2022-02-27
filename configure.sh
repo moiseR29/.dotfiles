@@ -14,6 +14,3 @@ ln -sf $DOTFILES_PATH/.config/bat $HOME/.config/bat
 ln -sf $DOTFILES_PATH/.config/nvim $HOME/.config/nvim
 ln -sf $DOTFILES_PATH/.config/Code/User/keybindings.json $HOME/.config/Code/User/keybindings.json
 ln -sf $DOTFILES_PATH/.config/Code/User/settings.json $HOME/.config/Code/User/settings.json
-
-## add
-[[ ! -f $DOTFILES_PATH/.aliasAccoringTo.sh ]] && touch .aliasAccordingTo.sh
