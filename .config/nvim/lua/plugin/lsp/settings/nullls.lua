@@ -1,22 +1,31 @@
+local u = require("utils")
+
 local nls = require("null-ls")
 local nls_utils = require "null-ls.utils"
 
 local formatting = nls.builtins.formatting
 local diagnostics = nls.builtins.diagnostics
+local actions = nls.builtins.code_actions
 
 local M = {}
 
-local sources = {
+local sources = {}
+
+
+--formatting.autopep8,
+--formatting.stylua,
+
+local JsTsSources = {
     formatting.prettier.with({
-        --extra_args = {"--no-semi", "--single-quote"},
         prefer_local = "./node_modules/.bin"
     }),
     diagnostics.eslint.with({
         prefer_local = "./node_modules/.bin"
     }),
-    formatting.autopep8,
-    formatting.stylua,
+    actions.eslint,
 }
+
+sources = u.merge(JsTsSources, sources)
 
 function M.setup(opts)
   nls.setup {

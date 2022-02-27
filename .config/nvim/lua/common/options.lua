@@ -1,9 +1,9 @@
 local options = {
   mouse = "a",
-  errorbells = false,     -- REVIEW
+  --errorbells = false,     -- REVIEW
   smartindent = true,
   number = true,
-  relativenumber = true, -- REVIEW
+  relativenumber = true,
   numberwidth = 1,
   wrap = false,           -- REVIEW
   swapfile = false,       -- REVIEW
@@ -15,8 +15,8 @@ local options = {
   encoding = "utf-8",
   cursorline = true,
   showmode = false,
-  expandtab = true,
-  smarttab = true,        -- REVIEW
+  --expandtab = true,
+  --smarttab = true,        -- REVIEW
   shiftwidth = 2,
   softtabstop = 2,
   tabstop = 2,
@@ -24,6 +24,9 @@ local options = {
   guifont="Meslo LG S DZ 12",
   termguicolors = true
 }
+
+-- Synax enable
+vim.cmd('syntax enable')
 
 for k,v in pairs(options) do
   vim.opt[k] = v
