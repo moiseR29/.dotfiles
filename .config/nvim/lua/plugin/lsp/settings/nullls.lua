@@ -27,6 +27,7 @@ local sources = {
 
 function M.setup(opts)
   nls.setup {
+		filetypes = {'javascript', 'typescript', 'yaml', 'markdown'},
     -- debug = true,
     sources = sources,
     on_attach = function(client)

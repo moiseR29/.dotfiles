@@ -4,6 +4,7 @@ vim.call('plug#begin', '~/.vim/plugged')
 
 --Plug "morhetz/gruvbox"                                           -- theme
 Plug('ayu-theme/ayu-vim')                                         -- theme
+Plug('xiyaowong/nvim-transparent')
 
 Plug('nvim-lualine/lualine.nvim')                                 -- down´s line
 Plug('kyazdani42/nvim-web-devicons')                              -- icons
@@ -17,8 +18,8 @@ Plug('jiangmiao/auto-pairs')                                      -- autopairs [
 Plug('ddollar/nerdcommenter')                                     -- comments
 Plug('mg979/vim-visual-multi',{branch='master'})                  -- plugin for easy use more one lines
 
-Plug('sheerun/vim-polyglot')                                      -- another them language
---lug('nvim-treesitter/nvim-treesitter',{['do'] = ':TSUpdate'})    -- themes for langauges
+--Plug('sheerun/vim-polyglot')                                      -- another them language
+Plug('nvim-treesitter/nvim-treesitter',{['do'] = ':TSUpdate'})    -- themes for langauges
 Plug('kyazdani42/nvim-tree.lua')                                  -- tree panel files
 
 Plug('jremmen/vim-ripgrep')                                       -- a good search
@@ -26,9 +27,9 @@ Plug('jremmen/vim-ripgrep')                                       -- a good sear
 Plug('nvim-lua/plenary.nvim')                                     -- funny finder´s dependency
 Plug('nvim-telescope/telescope.nvim')                             -- funny finder
 
-Plug('akinsho/toggleterm.nvim')                                   --Terminal
-
 Plug('fatih/vim-go')                                              -- Go plugin
+
+Plug('akinsho/toggleterm.nvim')                                   --Terminal
 
 Plug("neovim/nvim-lspconfig")                                     -- Enable LSP
 Plug("williamboman/nvim-lsp-installer")                           -- simple to use language server installer
