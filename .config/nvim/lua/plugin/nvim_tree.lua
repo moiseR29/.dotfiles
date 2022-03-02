@@ -3,7 +3,8 @@ local u = require("utils")
 u.global("nvim_tree_indent_markers",1)
 
 vim.g.nvim_tree_icons = {
-  default = "",
+  --default = "",
+  default = "",
   symlink = "",
   git = {
     unstaged = "M",
@@ -12,7 +13,8 @@ vim.g.nvim_tree_icons = {
     renamed = "➜",
     deleted = "",
     untracked = "U",
-    ignored = "◌",
+    --ignored = "◌",
+    ignored = "",
   },
   folder = {
     -- arrow_open = " ",
@@ -58,7 +60,11 @@ require("nvim-tree").setup({
       warning = "",
       error = "",
     },
-  }
+  },
+	git = {
+		enable = true,
+		ignore = false
+	}
 })
 
 u.keymap("n", "<leader>m", ":NvimTreeToggle<CR>")
