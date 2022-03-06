@@ -11,7 +11,7 @@ alias move_branch="git fetch && git checkout "
 # infra tools alias
 alias circle_local="circleci local execute --job "
 alias circle_valid="circleci config validate"
-#alias ngrok_up="cd && cd infra && ./ngrok http " TODO verify this
+alias ngrok_up="cd ~/infra-tools && ./ngrok http " TODO verify this
 alias docker_perm="sudo chown $USER /var/run/docker.sock"
 alias kubectl="sudo kubectl"
 alias minikube="sudo minikube"

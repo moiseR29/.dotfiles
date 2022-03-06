@@ -8,15 +8,15 @@ local options = {
   wrap = false,           -- REVIEW
   swapfile = false,       -- REVIEW
   backup = false,         -- REVIEW
-  --incsearch
+ --incsearch
   ignorecase = true,      -- REVIEW
   clipboard = "unnamedplus",
   fileencoding = "utf-8",
   encoding = "utf-8",
   cursorline = true,
   showmode = false,
-  --expandtab = true,
-  --smarttab = true,        -- REVIEW
+  expandtab = true,
+  smarttab = true,        -- REVIEW
   shiftwidth = 2,
   softtabstop = 2,
   tabstop = 2,
