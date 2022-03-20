@@ -1,5 +1,3 @@
-local u = require("utils")
-
 local nls = require("null-ls")
 local nls_utils = require "null-ls.utils"
 

@@ -30,11 +30,11 @@ vim.g.nvim_tree_icons = {
 require("nvim-tree").setup({
   disable_netrw = true,
   hijack_netrw = true,
-  open_on_setup = true,
+  open_on_setup = false,
   ignore_ft_on_setup = {'dashboard'},
-  auto_close = false,
-  open_on_tab = true,
-  hijack_cursor = true,
+  auto_close = true,
+  open_on_tab = false,
+  hijack_cursor = false,
   update_cwd = true,
   update_focused_file = {enable = true, update_cwd = true, ignore_list = {}},
   system_open = {
@@ -64,7 +64,11 @@ require("nvim-tree").setup({
 	git = {
 		enable = true,
 		ignore = false
-	}
+	},
+  quit_on_open = 0,
+  git_hl = 1,
+  disable_window_picker = 0,
+  root_folder_modifier = ":t"
 })
 
 u.keymap("n", "<leader>m", ":NvimTreeToggle<CR>")
