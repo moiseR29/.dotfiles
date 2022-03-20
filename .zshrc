@@ -25,5 +25,3 @@ esac
 # Config alias 
 source $HOME/.dotfiles/.alias.sh
 
-# Alias according to Source
-[[ -f $HOME/.dotfiles/.aliasAccordingTo.sh ]] && source $HOME/.dotfiles/.aliasAccordingTo.sh

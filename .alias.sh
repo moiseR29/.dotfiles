@@ -29,3 +29,6 @@ fi
 export GOBIN=/usr/local/go/bin
 export GOPATH=$HOME/code/me/go
 export PATH=$PATH:$GOBIN:$GOPATH/bin
+
+# Alias according to Source
+[[ -f $HOME/.dotfiles/.ownAlias.sh ]] && source $HOME/.dotfiles/.ownAlias.sh

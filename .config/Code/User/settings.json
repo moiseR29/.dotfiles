@@ -210,12 +210,12 @@
   "vim.vimrc.path": "$HOME/.vimrc",
   "editor.detectIndentation": true,
   "redhat.telemetry.enabled": true,
-  "window.zoomLevel": -1,
   "todo-tree.highlights.customHighlight": {
     "CHECK": {
       "foreground": "black",
       "iconColour": "yellow",
       "gutterIcon": true
     }
-  }
+  },
+  "window.zoomLevel": -1
 }
