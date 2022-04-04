@@ -3,3 +3,4 @@ require('common')
 
 -- Charge Plugins
 require('plugin')
+require('common')
