@@ -28,7 +28,7 @@ local options = {
 -- Synax enable
 vim.cmd('syntax enable')
 
-vim.cmd('filetype plugin indent on')
+--vim.cmd('filetype plugin indent on')
 
 for k,v in pairs(options) do
   vim.opt[k] = v

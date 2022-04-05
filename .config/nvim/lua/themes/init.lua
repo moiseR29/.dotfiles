@@ -1,3 +1,3 @@
-require("themes.ayu")
 require("themes.lualine")
-require("themes.nvim-transparent")
+require("themes.treesitter")
+require("themes.pump_bg")

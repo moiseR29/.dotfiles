@@ -71,12 +71,6 @@ local function lsp_keymaps(bufnr)
 
   u.buf_keymap(bufnr, "n", "<leader>q", "<cmd>lua vim.diagnostic.setloclist()<CR>")
   u.buf_keymap(bufnr, "n", "gl", "<cmd>lua vim.lsp.diagnostic.show_line_diagnostics({ border = 'rounded' })<CR>")
-
-  --vim.api.nvim_command [[augroup Format]]
-  --vim.api.nvim_command [[autocmd! * <buffer>]]
-  --vim.api.nvim_command [[autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_seq_sync()]]
-  --vim.api.nvim_command [[augroup END]]
-  --vim.cmd [[ command! Format execute 'lua vim.lsp.buf.formatting()' ]]
 end
 
 M.on_attach = function(client, bufnr)
