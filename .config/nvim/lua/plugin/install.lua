@@ -2,7 +2,9 @@ local Plug = vim.fn['plug#']
 
 vim.call('plug#begin', '~/.vim/plugged')
 
-
+--Plug "morhetz/gruvbox"                                           -- theme
+Plug('ayu-theme/ayu-vim')                                         -- theme
+Plug('xiyaowong/nvim-transparent')
 
 Plug('nvim-lualine/lualine.nvim')                                 -- down´s line
 Plug('kyazdani42/nvim-web-devicons')                              -- icons

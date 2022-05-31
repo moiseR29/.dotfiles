@@ -10,7 +10,7 @@ alias move_branch="git fetch && git checkout "
 # infra tools alias
 alias circle_local="circleci local execute --job "
 alias circle_valid="circleci config validate"
-alias ngrok_up="cd ~/infra-tools && ./ngrok http " TODO verify this
+alias ngrok_up="cd ~/infra-tools && ./ngrok http "
 alias docker_perm="sudo chown $USER /var/run/docker.sock"
 alias kubectl="sudo kubectl"
 alias minikube="sudo minikube"
@@ -33,5 +33,8 @@ alias py="pip3 "
 alias pyx="python3.8 "
 
 # Alias according to Source
-#[[ -f $HOME/.dotfiles/.ownAlias.sh ]] && source $HOME/.dotfiles/.ownAlias.sh
-source $HOME/.dotfiles/.ownAlias.sh
+
+# OPPIZI ENVS
+source $HOME/.dotfiles/.oppizi.sh
+
+# silvib@reklut.com

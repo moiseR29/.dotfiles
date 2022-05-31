@@ -24,4 +24,3 @@ export NVM_DIR="$HOME/.nvm"
 
 # Config alias 
 source $HOME/.dotfiles/.alias.sh
-
