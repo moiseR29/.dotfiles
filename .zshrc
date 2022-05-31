@@ -24,4 +24,3 @@ esac
 
 # Config alias 
 source $HOME/.dotfiles/.alias.sh
-
