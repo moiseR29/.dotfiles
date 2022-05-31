@@ -2,7 +2,6 @@
 alias update_console="source ~/.zshrc"
 alias os_version="neofetch"
 alias grep='grep --color=auto'
-alias os_version="neofetch"
 
 # apps alias
 alias nv="nvim ."
