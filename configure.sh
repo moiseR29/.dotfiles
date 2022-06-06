@@ -14,3 +14,5 @@ ln -sf $DOTFILES_PATH/.config/bat $HOME/.config/bat
 ln -sf $DOTFILES_PATH/.config/nvim $HOME/.config/nvim
 ln -sf $DOTFILES_PATH/.config/Code/User/keybindings.json $HOME/.config/Code/User/keybindings.json
 ln -sf $DOTFILES_PATH/.config/Code/User/settings.json $HOME/.config/Code/User/settings.json
+ln -sf $DOTFILES_PATH/.config/qtile ~/.config/qtile
+ln -sf $DOTFILES_PATH/.config/picom ~/.config/picom

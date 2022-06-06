@@ -2,6 +2,8 @@
 alias update_console="source ~/.zshrc"
 alias os_version="neofetch"
 alias grep='grep --color=auto'
+alias bright_up="sudo brightnessctl set +10%"
+alias bright_dw="sudo brightnessctl set 10%-"
 
 # apps alias
 alias nv="nvim ."
