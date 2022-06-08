@@ -11,7 +11,7 @@ from .keys import keys, mod, SHIFT_KEY
 # (nf-fa-code) Databases - Others
 # (nf-fa-code) social - Social
 group_configure = [
-    ("1", { 'label': '', 'layout': 'columns', 'matches': [Match(wm_class=["terminator"])], 'init': True }),
+    ("1", { 'label': '', 'layout': 'columns', 'matches': [Match(wm_class=["alacritty"])], 'init': True }),
     ("2", { 'label': '', 'layout': 'columns', 'matches': [Match(wm_class=["code"])] }),
     ("3", { 'label': 'ﱲ', 'layout': 'columns', 'matches': [Match(wm_class=['insomnia', 'notable', 'beekeeper-studio'])] }),
     ("4", { 'label': '', 'layout': 'columns', 'matches': [Match(wm_class=["brave-browser", "firefox"])] }),

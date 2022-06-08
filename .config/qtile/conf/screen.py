@@ -16,14 +16,14 @@ def base(fg='text', bg='dark'):
 def separator():
     return widget.Sep(**base(), linewidth=0, padding=5)
 
-def icon(fg='text', bg='dark', fontsize=16, text="?", padding=3):
+def icon(fg='text', bg='dark', fontsize=15, text="?", padding=3):
     return widget.TextBox(**base(fg, bg), fontsize=fontsize, text=text, padding=padding)
 
 def texto(fg='text', bg='dark', fontsize=16, text="?"):
     return widget.TextBox(**base(fg, bg), fontsize=fontsize, text=text)
 
 def powerline(fg='text', bg='dark'):
-    return widget.TextBox(**base(fg, bg), text="", fontsize=40, padding=0)
+    return widget.TextBox(**base(fg, bg), text="", fontsize=50, padding=-8.1)
 
 def groupSpace():
     return [
@@ -139,7 +139,7 @@ secondaryScreenBar = [
 
 screens = [
     Screen(
-        top=bar.Bar(primaryScreenBar, 27, opacity=0.92),
+        top=bar.Bar(primaryScreenBar, 24, opacity=0.92),
     )
 ]
 
