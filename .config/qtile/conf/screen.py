@@ -56,8 +56,8 @@ def groupSpace():
     ]
 
 primaryScreenBar = [
-        # Ubuntu Log Section
-        icon(bg='color1',fg='dark', fontsize=30, text=""),
+        # SO Log Section
+        icon(bg='dark',fg='color3', fontsize=40, text=""), #  -> Ubuntu
         separator(),
 
         # Group Section
@@ -97,8 +97,8 @@ primaryScreenBar = [
 ]
 
 secondaryScreenBar = [
-        # Ubuntu Log Section
-        icon(bg='color1',fg='dark', fontsize=30, text=""),
+        # SO Log Section
+        icon(bg='dark',fg='color3', fontsize=40, text=""), #  -> Ubuntu
         separator(),
 
         # Group Section

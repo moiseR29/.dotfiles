@@ -26,5 +26,8 @@ def whenStart():
     l15Wpp if isl15 else t430Wpp
   )
 
+  # picom
+  commandsToExecuteWhenStart.append("picom --experimental-backends -b")
+
   for command in commandsToExecuteWhenStart:
       os.system(command)

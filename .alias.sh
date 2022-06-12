@@ -19,11 +19,19 @@ alias minikube="sudo minikube"
 
 # Conditional Alias
 if [ $(which bat) ]; then
-  alias cat='bat --style=plain --paging=never'
+  alias cat='bat'
+fi
+
+if [ $(which lsd) ]; then
+  alias ll='lsd -lh --group-dirs=first'
+  alias la='lsd -a --group-dirs=first'
+  alias l='lsd --group-dirs=first'
+  alias lla='lsd -lha -group-dirs=first'
+  alias ls='lsd --group-dirs=first'
 fi
 
 if [ $(which exa) ]; then
-  alias ls='exa --group-directories-first'
+  #alias ls='exa --group-directories-first'
   alias tree='exa -T'
 fi
 
@@ -37,6 +45,6 @@ alias pyx="python3.8 "
 # Alias according to Source
 
 # OPPIZI ENVS
-source $HOME/.dotfiles/.oppizi.sh
+#source $HOME/.dotfiles/.oppizi.sh
 
 # silvib@reklut.com

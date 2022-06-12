@@ -2,7 +2,7 @@ from libqtile.config import Key
 from libqtile.lazy import lazy
 
 mod = "mod4" # key to use mod (mod4 is a windows key)
-terminal = 'alacritty'#guess_terminal() # guess_terminal use default terminal
+terminal = 'terminator'#guess_terminal() # guess_terminal use default terminal
 SHIFT_KEY="shift"
 CONTROL_KEY="control"
 FONT="MesloLGS NF"
@@ -48,7 +48,8 @@ keys = [
     Key([mod], "r", lazy.spawncmd(), desc="Spawn a command using a prompt widget"),
 
     # Custom
-    Key([mod], "b", lazy.spawn("firefox"), desc="Launch Mozilla Browser"),
+    Key([mod], "b", lazy.spawn("brave"), desc="Launch brave Browser"),
+    Key([mod, SHIFT_KEY], "b", lazy.spawn("firefox"), desc="Launch mozilla Browser"),
 
     Key([mod], "m", lazy.spawn("rofi -show drun"), desc="Launch Application Explorer"),
     Key([mod, SHIFT_KEY], "m", lazy.spawn("rofi -show"), desc="Launch Application Explorer Current Group"),
@@ -67,6 +68,9 @@ keys = [
     Key([mod], "s", lazy.spawn("slack")),
     Key([mod], "n", lazy.spawn("notable")),
     Key([mod, CONTROL_KEY], "m", lazy.spawn("mailspring")),
+
+    # Audio Graphical
+    Key([mod, CONTROL_KEY], "a", lazy.spawn("pavucontrol")),
 
     # Screens
     Key([mod, SHIFT_KEY], "comma", lazy.prev_screen()),
