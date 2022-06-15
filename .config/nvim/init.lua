@@ -1,3 +1,3 @@
 require('common')
-require('plugin')
-require('themes')
+--require('plugin')
+--require('themes')
