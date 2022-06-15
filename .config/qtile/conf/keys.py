@@ -48,26 +48,39 @@ keys = [
     Key([mod], "r", lazy.spawncmd(), desc="Spawn a command using a prompt widget"),
 
     # Custom
+    # Browsers
     Key([mod], "b", lazy.spawn("brave"), desc="Launch brave Browser"),
     Key([mod, SHIFT_KEY], "b", lazy.spawn("firefox"), desc="Launch mozilla Browser"),
 
+    # Finded
     Key([mod], "m", lazy.spawn("rofi -show drun"), desc="Launch Application Explorer"),
     Key([mod, SHIFT_KEY], "m", lazy.spawn("rofi -show"), desc="Launch Application Explorer Current Group"),
 
-    # Hardware
-    Key([], "XF86AudioRaiseVolume", lazy.spawn("pactl set-sink-volume @DEFAULT_SINK@ +5%")),
-    Key([], "XF86AudioLowerVolume", lazy.spawn("pactl set-sink-volume @DEFAULT_SINK@ -5%")),
-    Key([], "XF86AudioMute", lazy.spawn("pactl set-sink-mute @DEFAULT_SINK@ toggle")),
+    # file explorer
+    Key([mod], "f", lazy.spawn("thunar"), desc="Launch File Explorer"),
 
-    Key([], "XF86MonBrightnessUp", lazy.spawn("brightnessctl set +10%")), # Find the mode to execute whitnt sudo
-    Key([], "XF86MonBrightnessDown", lazy.spawn("brightnessctl set 10%-")),
-
-    Key([mod], "o", lazy.spawn("shutdown now")),
-
+    # APPS
     Key([mod], "d", lazy.spawn("discord")),
     Key([mod], "s", lazy.spawn("slack")),
     Key([mod], "n", lazy.spawn("notable")),
     Key([mod, CONTROL_KEY], "m", lazy.spawn("mailspring")),
+
+    # Screenshot
+    Key([mod], "p", lazy.spawn("scrot")),
+    Key([mod, SHIFT_KEY], "p", lazy.spawn("scrot -s")),
+
+    # Hardware
+    # Volumen
+    Key([], "XF86AudioRaiseVolume", lazy.spawn("pactl set-sink-volume @DEFAULT_SINK@ +5%")),
+    Key([], "XF86AudioLowerVolume", lazy.spawn("pactl set-sink-volume @DEFAULT_SINK@ -5%")),
+    Key([], "XF86AudioMute", lazy.spawn("pactl set-sink-mute @DEFAULT_SINK@ toggle")),
+
+    # Bright
+    Key([], "XF86MonBrightnessUp", lazy.spawn("brightnessctl set +10%")),
+    Key([], "XF86MonBrightnessDown", lazy.spawn("brightnessctl set 10%-")),
+
+    # SO
+    Key([mod], "o", lazy.spawn("shutdown now")),
 
     # Audio Graphical
     Key([mod, CONTROL_KEY], "a", lazy.spawn("pavucontrol")),

@@ -8,15 +8,16 @@ Plug('xiyaowong/nvim-transparent')
 
 Plug('nvim-lualine/lualine.nvim')                                 -- down´s line
 Plug('kyazdani42/nvim-web-devicons')                              -- icons
+Plug('akinsho/bufferline.nvim', { ['tag'] = 'v2.*' })             -- bufferline
 
-Plug('tpope/vim-fugitive')                                        -- git plugin
-Plug('yggdroot/indentline')                                       -- show lines tabs
+Plug('tpope/vim-fugitive')                                        -- git plugin *
+Plug('yggdroot/indentline')                                       -- show lines tabs *
 
-Plug('christoomey/vim-tmux-navigator')                            -- easy move between buffers
-Plug('jiangmiao/auto-pairs')                                      -- autopairs [] <--
+Plug('christoomey/vim-tmux-navigator')                            -- easy move between buffers *
+Plug('jiangmiao/auto-pairs')                                      -- autopairs [] <-- *
 
-Plug('ddollar/nerdcommenter')                                     -- comments
-Plug('mg979/vim-visual-multi',{branch='master'})                  -- plugin for easy use more one lines
+Plug('ddollar/nerdcommenter')                                     -- comments *
+Plug('mg979/vim-visual-multi',{branch='master'})                  -- plugin for easy use more one lines *
 
 Plug('nvim-treesitter/nvim-treesitter',{['do'] = ':TSUpdate'})    -- themes for langauges
 Plug('kyazdani42/nvim-tree.lua')                                  -- tree panel files
@@ -26,9 +27,9 @@ Plug('jremmen/vim-ripgrep')                                       -- a good sear
 Plug('nvim-lua/plenary.nvim')                                     -- funny finder´s dependency
 Plug('nvim-telescope/telescope.nvim')                             -- funny finder
 
-Plug('fatih/vim-go')                                              -- Go plugin
+--Plug('fatih/vim-go')                                              -- Go plugin
 
-Plug('akinsho/toggleterm.nvim')                                   --Terminal
+--Plug('akinsho/toggleterm.nvim')                                   --Terminal
 
 
 Plug("neovim/nvim-lspconfig")                                     -- Enable LSP
@@ -41,7 +42,8 @@ Plug("saadparwaiz1/cmp_luasnip")                                  -- snippets co
 Plug("onsails/lspkind-nvim")                                      -- icons popup
 Plug("hrsh7th/cmp-cmdline")                                       -- cmdline completions
 Plug("L3MON4D3/LuaSnip")                                          -- library snippets
-Plug("b0o/schemastore.nvim")                                      -- schemas for jsonls
-Plug("jose-elias-alvarez/null-ls.nvim")                           -- formatters and linters
+
+Plug("b0o/schemastore.nvim")                                      -- schemas for jsonls *
+Plug("jose-elias-alvarez/null-ls.nvim")                           -- formatters and linters *
 
 vim.call('plug#end')

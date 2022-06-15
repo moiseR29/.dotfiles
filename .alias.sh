@@ -31,7 +31,6 @@ if [ $(which lsd) ]; then
 fi
 
 if [ $(which exa) ]; then
-  #alias ls='exa --group-directories-first'
   alias tree='exa -T'
 fi
 

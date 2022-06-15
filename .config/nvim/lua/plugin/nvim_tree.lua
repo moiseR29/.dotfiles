@@ -1,38 +1,39 @@
 local u = require("utils")
 
-u.global("nvim_tree_indent_markers",1)
+--u.global("nvim_tree_indent_markers",1)
 
-vim.g.nvim_tree_icons = {
-  --default = "",
-  default = "",
-  symlink = "",
-  git = {
-    unstaged = "M",
-    staged = "S",
-    unmerged = "",
-    renamed = "➜",
-    deleted = "",
-    untracked = "U",
-    --ignored = "◌",
-    ignored = "",
-  },
-  folder = {
-    -- arrow_open = " ",
-    -- arrow_closed = "",
-    default = "",
-    open = "",
-    empty = "",
-    empty_open = "",
-    symlink = "",
-  },
-}
+--vim.g.nvim_tree_icons = {
+--  --default = "",
+--  default = "",
+--  symlink = "",
+--  git = {
+--    unstaged = "M",
+--    staged = "S",
+--    unmerged = "",
+--    renamed = "➜",
+--    deleted = "",
+--    untracked = "U",
+--    --ignored = "◌",
+--    ignored = "",
+--  },
+--  folder = {
+--    -- arrow_open = " ",
+--    -- arrow_closed = "",
+--    default = "",
+--    open = "",
+--    empty = "",
+--    empty_open = "",
+--    symlink = "",
+--  },
+--}
 
 require("nvim-tree").setup({
+
   disable_netrw = true,
   hijack_netrw = true,
   open_on_setup = false,
   ignore_ft_on_setup = {'dashboard'},
-  auto_close = true,
+  --auto_close = true,
   open_on_tab = false,
   hijack_cursor = false,
   update_cwd = true,
@@ -65,10 +66,42 @@ require("nvim-tree").setup({
 		enable = true,
 		ignore = false
 	},
-  quit_on_open = 0,
-  git_hl = 1,
-  disable_window_picker = 0,
-  root_folder_modifier = ":t"
+  renderer = {
+    indent_markers = {
+      enable = true,
+    },
+    icons = {
+      glyphs = {
+        default = "",
+        symlink = "",
+        git = {
+          unstaged = "M",
+          staged = "S",
+          unmerged = "",
+          renamed = "➜",
+          deleted = "",
+          untracked = "U",
+          --ignored = "◌",
+          ignored = "",
+        },
+        folder = {
+          -- arrow_open = " ",
+          -- arrow_closed = "",
+          default = "",
+          open = "",
+          empty = "",
+          empty_open = "",
+          symlink = "",
+        },
+      },
+    },
+  },
+
+
+  --quit_on_open = 0,
+  --git_hl = 1,
+  --disable_window_picker = 0,
+  --root_folder_modifier = ":t"
 })
 
 u.keymap("n", "<leader>m", ":NvimTreeToggle<CR>")

@@ -12,11 +12,10 @@ from .keys import keys, mod, SHIFT_KEY
 # (nf-fa-code) social - Social
 group_configure = [
     ("1", { 'label': '', 'layout': 'columns', 'matches': [Match(wm_class=["alacritty", "terminator"])], 'init': True }),
-    ("2", { 'label': '', 'layout': 'columns', 'matches': [Match(wm_class=["code", "Code - OSS"])] }),
+    ("2", { 'label': '', 'layout': 'columns', 'matches': [Match(wm_class=["code", "code-oss"])] }),
     ("3", { 'label': 'ﱲ', 'layout': 'columns', 'matches': [Match(wm_class=['insomnia', 'notable', 'beekeeper-studio'])] }),
     ("4", { 'label': '', 'layout': 'columns', 'matches': [Match(wm_class=["brave-browser", "firefox"])] }),
-    ("5", { 'label': 'ﭮ', 'layout': 'columns', 'matches': [Match(wm_class=["discord", "slack", "mailspring"])] })
-    #("6", { 'label': '', 'layout': 'columns', 'matches': [Match(wm_class=["Archivos", "beekeeper-studio"])] })
+    ("5", { 'label': 'ﭮ', 'layout': 'columns', 'matches': [Match(wm_class=["discord", "slack", "mailspring", "thunar"])] })
 ]
 
 groups = [Group(name, **args) for name, args in group_configure]

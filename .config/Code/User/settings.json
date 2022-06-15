@@ -47,13 +47,12 @@
   },
   "[terraform]": {
     "editor.defaultFormatter": "hashicorp.terraform",
-    "editor.formatOnSave": true,
+    "editor.formatOnSave": true
   },
   "[terraform-vars]": {
     "editor.defaultFormatter": "hashicorp.terraform",
     "editor.formatOnSave": true,
   },
-  "workbench.iconTheme": "material-icon-theme",
   "terminal.integrated.shell.linux": "/usr/bin/zsh",
   "editor.tabSize": 2,
   "editor.renderWhitespace": "all",
@@ -206,8 +205,8 @@
   "vim.easymotionMarkerForegroundColorOneChar": "yellow",
   "vim.useSystemClipboard": true,
   "vim.easymotionMarkerBackgroundColor": "black",
-  "vim.vimrc.enable": true,
-  "vim.vimrc.path": "$HOME/.vimrc",
+  //"vim.vimrc.enable": true,
+  //"vim.vimrc.path": "$HOME/.vimrc",
   "editor.detectIndentation": true,
   "redhat.telemetry.enabled": true,
   "todo-tree.highlights.customHighlight": {
@@ -218,5 +217,9 @@
     }
   },
   "security.workspace.trust.untrustedFiles": "open",
-  "window.zoomLevel": -1
+  "window.zoomLevel": -1,
+  "workbench.iconTheme": "material-icon-theme",
+  "Lua.diagnostics.globals": [
+    "vim"
+  ]
 }
