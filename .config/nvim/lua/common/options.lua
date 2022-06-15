@@ -30,26 +30,31 @@ local options = {
   completeopt = { "menuone", "noselect" },
 }
 
--- g
---[[ {
+for k,v in pairs(options) do
+  vim.opt[k] = v
+end
+
+local global_options = {
   nvchad_theme = "onedark",
   toggle_theme_icon = "   ",
   transparency = false,
   theme_switcher_loaded = false,
-
   did_load_filetypes = 0,
   do_filetype_lua = 1
+}
+
+for k,v in pairs(global_options) do
+  vim.g[k] = v
+end
+
+-- g
+--[[ {
 } ]]
 
 -- Synax enable
 --vim.cmd('syntax enable')
 
 --vim.cmd('filetype plugin indent on')
-
-
-for k,v in pairs(options) do
-  vim.opt[k] = v
-end
 
 local default_plugins = {
    "syntax",
