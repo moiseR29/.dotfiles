@@ -85,5 +85,5 @@ u.keymap("n", "<TAB>", "<cmd> BufferLineCycleNext <CR>")
 u.keymap("n", "<S-Tab>", "<cmd> BufferLineCyclePrev <CR>")
 
 -- close buffer
-u.keymapFunction("n", "<leader>x", function() u.close_buffer() end)
+u.keymapFunction("n", "<A-w>", function() u.close_buffer() end)
 

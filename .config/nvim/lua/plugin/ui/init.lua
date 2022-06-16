@@ -7,3 +7,9 @@ require("plugin.ui.indent-blankline")
 -- themes and colors
 require("plugin.ui.nvim-colorizer")
 require("plugin.ui.nvim-treesitter")
+
+-- main page
+require("plugin.ui.alpha")
+
+-- file directory
+require("plugin.ui.nvim-tree")

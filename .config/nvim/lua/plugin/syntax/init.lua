@@ -1,0 +1,1 @@
+require("plugin.syntax.comment")

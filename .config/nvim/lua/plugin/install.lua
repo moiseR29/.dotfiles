@@ -54,6 +54,17 @@ Plug("hrsh7th/cmp-path")
 -- autopair
 Plug("windwp/nvim-autopairs")
 
+-- main page
+Plug("goolord/alpha-nvim")
+
+-- comment
+Plug("numToStr/Comment.nvim")
+
+-- file management
+Plug("kyazdani42/nvim-tree.lua")
+
+-- utility
+Plug("nvim-telescope/telescope.nvim")
 
 -- schemas for json
 Plug("b0o/schemastore.nvim")
