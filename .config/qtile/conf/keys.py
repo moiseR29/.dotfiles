@@ -63,6 +63,7 @@ keys = [
     Key([mod], "d", lazy.spawn("discord")),
     Key([mod], "s", lazy.spawn("slack")),
     Key([mod], "n", lazy.spawn("notable")),
+    Key([mod, CONTROL_KEY], "b", lazy.spawn("beekeeper-studio")),
     Key([mod, CONTROL_KEY], "m", lazy.spawn("mailspring")),
 
     # Screenshot

@@ -13,13 +13,30 @@ alias move_branch="git fetch && git checkout "
 alias circle_local="circleci local execute --job "
 alias circle_valid="circleci config validate"
 alias ngrok_up="cd ~/infra-tools && ./ngrok http "
+alias dngrok_up="docker run --rm -it -e NGROK_AUTHTOKEN='1dPaMCu6D4Xk2uUPTvuCH0HmLr7_4n83cnLb49yHZiudABgUw' ngrok/ngrok http $1"
+
 alias docker_perm="sudo chown $USER /var/run/docker.sock"
 alias kubectl="sudo kubectl"
 alias minikube="sudo minikube"
 
 # Conditional Alias
 if [ $(which bat) ]; then
-  alias cat='bat'
+  alias cat='bat --theme="Dracula" --style="numbers,changes,header"'
+  alias bathelp='bat --plain --language=help'
+  bhelp() {
+      "$@" --help 2>&1 | bathelp
+  }
+
+  if [ $(which xclip) ]; then
+    bcopy() {
+      bat "$@" | xclip -sel clip
+    }
+  fi
+
+  bdiff() {
+    git diff --name-only --relative --diff-filter=d | xargs bat --theme="Dracula" --diff
+  }
+
 fi
 
 if [ $(which lsd) ]; then

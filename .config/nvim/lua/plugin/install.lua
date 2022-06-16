@@ -72,6 +72,9 @@ Plug("kyazdani42/nvim-tree.lua")
 -- utility
 Plug("nvim-telescope/telescope.nvim")
 
+-- for movements
+Plug('christoomey/vim-tmux-navigator')
+
 -- plugin for easy use more one lines *
 Plug('mg979/vim-visual-multi',{branch='master'})
 
