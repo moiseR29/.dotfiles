@@ -19,6 +19,10 @@ function M.global(key, value)
   vim.g[key] = value
 end
 
+function M.addOpt(key, value)
+  vim.opt[key] = value
+end
+
 function M.merge(t1, t2)
 	return vim.tbl_deep_extend("force", t1, t2)
 end

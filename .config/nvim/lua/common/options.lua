@@ -1,3 +1,5 @@
+local u = require("utils")
+
 local options = {
   laststatus = 3,             -- *
   --statusline = "%!v:lua.require'ui.statusline'.run()",
@@ -31,7 +33,7 @@ local options = {
 }
 
 for k,v in pairs(options) do
-  vim.opt[k] = v
+  u.addOpt(k, v)
 end
 
 local global_options = {
@@ -44,7 +46,7 @@ local global_options = {
 }
 
 for k,v in pairs(global_options) do
-  vim.g[k] = v
+  u.global(k, v)
 end
 
 -- g
