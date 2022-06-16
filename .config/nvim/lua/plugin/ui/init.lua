@@ -13,4 +13,7 @@ require("plugin.ui.alpha")
 
 -- file directory
 require("plugin.ui.nvim-tree")
-require("plugin.ui.statusline")
+
+-- lines
+-- require("plugin.ui.statusline")
+require("plugin.ui.lualine")

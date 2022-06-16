@@ -27,6 +27,9 @@ Plug('nvim-treesitter/nvim-treesitter',{['do'] = ':TSUpdate'})
 -- git plugin for inspect commits
 Plug('lewis6991/gitsigns.nvim')
 
+-- line
+Plug('nvim-lualine/lualine.nvim')
+
 -- LSP
 
 -- simple to use language server installer
@@ -68,6 +71,9 @@ Plug("kyazdani42/nvim-tree.lua")
 
 -- utility
 Plug("nvim-telescope/telescope.nvim")
+
+-- plugin for easy use more one lines *
+Plug('mg979/vim-visual-multi',{branch='master'})
 
 -- schemas for json
 Plug("b0o/schemastore.nvim")
