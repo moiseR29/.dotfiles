@@ -1,5 +1,4 @@
 local present, devicons = pcall(require, "nvim-web-devicons")
-local secondpresent, base46 = pcall(require, "base46")
 
 if not present then
   return
@@ -147,9 +146,6 @@ local icons = {
    },
 }
 
-
-if secondpresent then
-  base46.load_highlight("devicons")
-end
+require("theme").load_highlight("devicons")
 
 devicons.setup({ override = icons })

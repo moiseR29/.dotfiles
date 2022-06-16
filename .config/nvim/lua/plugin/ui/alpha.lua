@@ -1,13 +1,10 @@
 local present, alpha = pcall(require, "alpha")
-local secondPresent, base46 = pcall(require, "base46")
 
 if not present then
   return
 end
 
-if secondPresent then
-  base46.load_highlight("alpha")
-end
+require("theme").load_highlight("alpha")
 
 local function button(sc, txt, keybind)
   local sc_ = sc:gsub("%s", ""):gsub("SPC", "<leader>")

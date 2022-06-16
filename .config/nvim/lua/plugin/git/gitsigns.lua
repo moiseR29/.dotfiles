@@ -1,13 +1,10 @@
 local present, gitsigns = pcall(require, "gitsigns")
-local secondpresent, base46 = pcall(require, "base46")
 
 if not present then
   return
 end
 
-if secondpresent then
-  base46.load_highlight "git"
-end
+require("theme").load_highlight("git")
 
 local options = {
   signs = {

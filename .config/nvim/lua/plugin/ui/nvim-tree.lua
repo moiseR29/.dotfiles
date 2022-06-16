@@ -1,13 +1,10 @@
 local present, nvimtree = pcall(require, "nvim-tree")
-local secondPresent, base46 = pcall(require, "base46")
 
 if not present then
   return
 end
 
-if secondPresent then
-  base46.load_highlight("nvimtree")
-end
+require("theme").load_highlight("nvimtree")
 
 local u = require("utils")
 

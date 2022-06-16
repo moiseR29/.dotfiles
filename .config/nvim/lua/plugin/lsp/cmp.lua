@@ -1,13 +1,10 @@
 local present, cmp = pcall(require, "cmp")
-local secondPresent, base46 = pcall(require, "base46")
 
 if not present then
   return
 end
 
-if secondPresent then
-  base46.load_highlight("cmp")
-end
+require("theme").load_highlight("cmp")
 
 vim.opt.completeopt = "menuone,noselect"
 

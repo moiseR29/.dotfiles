@@ -6,8 +6,8 @@ vim.call('plug#begin', '~/.vim/plugged')
 Plug('nvim-lua/plenary.nvim')
 
 -- helper NvChad for themes
-Plug("NvChad/extensions")
-Plug("NvChad/base46")
+--Plug("NvChad/extensions")
+--Plug("NvChad/base46")
 
 -- iconst
 Plug("kyazdani42/nvim-web-devicons")

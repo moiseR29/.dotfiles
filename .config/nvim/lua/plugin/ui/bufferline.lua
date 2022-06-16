@@ -1,5 +1,4 @@
 local present, bufferline = pcall(require, "bufferline")
-local secondpresent, base46 = pcall(require, "base46")
 
 local u = require("utils")
 
@@ -7,19 +6,16 @@ if not present then
   return
 end
 
-if secondpresent then
-  base46.load_highlight("blankline")
+require("theme").load_highlight("bufferline")
 
-  vim.cmd [[
-   function! Toggle_theme(a,b,c,d)
-     lua require('base46').toggle_theme()
-   endfunction
-
-   function! Quit_vim(a,b,c,d)
-       qa
-   endfunction
-  ]]
-end
+vim.cmd [[
+ function! Toggle_theme(a,b,c,d)
+   lua require('theme').toggle_theme()
+ endfunction
+ function! Quit_vim(a,b,c,d)
+     qa
+ endfunction
+]]
 
 local options = {
   options = {

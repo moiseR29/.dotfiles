@@ -1,14 +1,11 @@
 local present, treesitter = pcall(require, "nvim-treesitter.configs")
-local secondpresent, base46 = pcall(require, "base46")
 
 if not present then
   return
 end
 
-if secondpresent then
-  base46.load_highlight("syntax")
-  base46.load_highlight("treesitter")
-end
+require("theme").load_highlight("syntax")
+require("theme").load_highlight("treesitter")
 
 local options = {
   ensure_installed = { "python", "javascript", "typescript", "go", "lua", "markdown", "yaml", "json", "bash" },
