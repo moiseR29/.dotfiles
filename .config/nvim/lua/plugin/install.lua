@@ -54,6 +54,9 @@ Plug("hrsh7th/cmp-path")
 -- autopair
 Plug("windwp/nvim-autopairs")
 
+-- formatter and linter
+Plug("jose-elias-alvarez/null-ls.nvim")
+
 -- main page
 Plug("goolord/alpha-nvim")
 
