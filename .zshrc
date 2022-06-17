@@ -13,7 +13,7 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 
 DISABLE_AUTO_TITLE="true"
 
-plugins=(git)
+plugins=(git sudo history)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -23,14 +23,7 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-#case $TERM in
-#  xterm*)
-#    precmd () {print -Pn "\e]0;Code man, Code!\a"}
-#    ;;
-#esac
-
-#source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+[[ -f /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]] && source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # Config alias 
-source $HOME/.dotfiles/.alias.sh
+[[ -f $HOME/.dotfiles/.alias.sh ]] && source $HOME/.dotfiles/.alias.sh
