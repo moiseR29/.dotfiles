@@ -1,7 +1,9 @@
 # os alias
 alias update_console="source ~/.zshrc"
-alias os_version="neofetch"
+alias osv="neofetch"
 alias grep='grep --color=auto'
+
+# brightnes control
 alias bright_up="sudo brightnessctl set +10%"
 alias bright_dw="sudo brightnessctl set 10%-"
 
@@ -14,17 +16,14 @@ alias circle_local="circleci local execute --job "
 alias circle_valid="circleci config validate"
 alias ngrok_up="cd ~/infra-tools && ./ngrok http "
 alias dngrok_up="docker run --rm -it -e NGROK_AUTHTOKEN='1dPaMCu6D4Xk2uUPTvuCH0HmLr7_4n83cnLb49yHZiudABgUw' ngrok/ngrok http $1"
-
-alias docker_perm="sudo chown $USER /var/run/docker.sock"
 alias kubectl="sudo kubectl"
 alias minikube="sudo minikube"
 
 # Conditional Alias
 if [ $(which bat) ]; then
   alias cat='bat --theme="Dracula" --style="numbers,changes,header"'
-  alias bathelp='bat --plain --language=help'
   bhelp() {
-      "$@" --help 2>&1 | bathelp
+      "$@" --help 2>&1 | bat --plain --language=help
   }
 
   if [ $(which xclip) ]; then
@@ -51,16 +50,4 @@ if [ $(which exa) ]; then
   alias tree='exa -T'
 fi
 
-export GOBIN=/usr/local/go/bin
-export GOPATH=$HOME/code/me/go
-export PATH=$PATH:$GOBIN:$GOPATH/bin
-
-alias py="pip3 "
-alias pyx="python3.8 "
-
-# Alias according to Source
-
-# OPPIZI ENVS
-#source $HOME/.dotfiles/.oppizi.sh
-
-# silvib@reklut.com
+[[ -f ~/.dotfiles/.custom.sh ]] && source ~/.dotfiles/.custom.sh
