@@ -4,6 +4,8 @@ if not present then
   return
 end
 
+local u = require("utils")
+
 require("theme").load_highlight("git")
 
 local options = {
@@ -16,5 +18,11 @@ local options = {
   },
   current_line_blame = true
 }
+
+u.keymap("n", "<leader>gsp", "<cmd> Gitsigns preview_hunk <CR>")
+u.keymap("n", "<leader>gsr", "<cmd> Gitsigns reset_hunk<CR>")
+u.keymap("n", "<leader>gsu", "<cmd> Gitsigns undo_stage_hunk <CR>")
+u.keymap("n", "<leader>gsf", '<cmd>lua require"gitsigns".diffthis("~")<CR>')
+u.keymap("n", "<leader>gsft", "<cmd>Gitsigns diffthis<CR>")
 
 gitsigns.setup(options)

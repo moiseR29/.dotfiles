@@ -28,6 +28,8 @@ local options = {
     side = "left",
     width = 25,
     hide_root_folder = true,
+    number = true,
+    relativenumber = true
   },
   git = {
     enable = true,

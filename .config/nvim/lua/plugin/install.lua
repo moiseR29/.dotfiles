@@ -24,6 +24,10 @@ Plug("NvChad/nvim-colorizer.lua")
 -- themes for languages
 Plug('nvim-treesitter/nvim-treesitter',{['do'] = ':TSUpdate'})
 
+-- GIT PLUGINS
+-- for status and resolve merge
+Plug('tpope/vim-fugitive')
+
 -- git plugin for inspect commits
 Plug('lewis6991/gitsigns.nvim')
 

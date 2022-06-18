@@ -1,7 +1,7 @@
 from os import path
 import json
 
-def loadTheme(theme = 'dracula'):
+def loadTheme(theme = 'rynx'):
   home = path.expanduser('~')
 
   config = path.join(home, f'.config/qtile/themes/{theme}.json')

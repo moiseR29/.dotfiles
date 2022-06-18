@@ -23,6 +23,7 @@ local sources = {
     prefer_local = "./node_modules/.bin"
   }),
   actions.eslint,
+  actions.gitsigns,
 
   --formatting.gofmt,
   --diagnostics.gofmt
