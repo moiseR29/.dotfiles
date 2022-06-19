@@ -18,18 +18,21 @@ local sources = {
   -- Formatter
   formatting.prettier.with({
     prefer_local = "./node_modules/.bin",
-    filetypes = {'javascript', 'typescript', 'yaml', 'markdown', 'json'},
+    filetypes = {'javascript', 'typescript', 'yaml', 'markdown'},
   }),
-  formatting.stylua,
+  -- formatting.stylua, --Need stylelua
 
   -- diagnostics
   diagnostics.eslint.with({
     prefer_local = "./node_modules/.bin",
-    filetypes = {'javascript', 'typescript', 'yaml', 'markdown', 'json'},
+    filetypes = {'javascript', 'typescript', 'yaml', 'markdown'},
   }),
 
   -- Actions
-  actions.eslint,
+  actions.eslint.with({
+    prefer_local = "./node_modules/.bin",
+    filetypes = {'javascript', 'typescript', 'yaml', 'markdown'},
+  }),
   actions.gitsigns,
 
   --formatting.gofmt,
