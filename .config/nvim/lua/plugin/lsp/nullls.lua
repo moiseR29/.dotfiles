@@ -4,24 +4,31 @@ if not present then
   return
 end
 
+local h = require("plugin.lsp.handlers")
+
 local nls_utils = require "null-ls.utils"
 
 local formatting = nls.builtins.formatting
 local diagnostics = nls.builtins.diagnostics
 local actions = nls.builtins.code_actions
 
-local M = {}
-
 --formatting.autopep8,
---formatting.stylua,
 
 local sources = {
+  -- Formatter
   formatting.prettier.with({
-    prefer_local = "./node_modules/.bin"
+    prefer_local = "./node_modules/.bin",
+    filetypes = {'javascript', 'typescript', 'yaml', 'markdown', 'json'},
   }),
+  formatting.stylua,
+
+  -- diagnostics
   diagnostics.eslint.with({
-    prefer_local = "./node_modules/.bin"
+    prefer_local = "./node_modules/.bin",
+    filetypes = {'javascript', 'typescript', 'yaml', 'markdown', 'json'},
   }),
+
+  -- Actions
   actions.eslint,
   actions.gitsigns,
 
@@ -29,23 +36,20 @@ local sources = {
   --diagnostics.gofmt
 }
 
-function M.setup(opts)
-  nls.setup {
-		filetypes = {'javascript', 'typescript', 'yaml', 'markdown'},
-    -- debug = true,
-    sources = sources,
-    on_attach = function(client)
-        if client.resolved_capabilities.document_formatting then
-            vim.cmd([[
-                augroup lspformatting
-                    autocmd! * <buffer>
-                    autocmd bufwritepre <buffer> lua vim.lsp.buf.formatting_sync()
-                augroup end
-            ]])
-        end
-    end,
-    root_dir = nls_utils.root_pattern ".git",
-  }
-end
-
-return M
+nls.setup {
+  --filetypes = {'javascript', 'typescript', 'yaml', 'markdown'},
+   -- debug = true,
+  sources = sources,
+  capabilities = h.capabilities,
+  on_attach = function(client)
+    if client.resolved_capabilities.document_formatting then
+      vim.cmd([[
+        augroup lspformatting
+          autocmd! * <buffer>
+          autocmd bufwritepre <buffer> lua vim.lsp.buf.formatting_sync()
+        augroup end
+      ]])
+    end
+  end,
+  root_dir = nls_utils.root_pattern ".git",
+}
