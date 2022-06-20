@@ -8,6 +8,7 @@ alias bright_up="sudo brightnessctl set +10%"
 alias bright_dw="sudo brightnessctl set 10%-"
 
 # apps alias
+alias n="nvim "
 alias nv="nvim ."
 alias move_branch="git fetch && git checkout " 
 
