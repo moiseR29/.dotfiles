@@ -62,6 +62,11 @@ lsp_installer.on_server_ready(function(server)
 	 	opts = u.merge(gopls_opts, opts)
 	 end
 
+	 if server.name == "pyright" then
+	 	local pyright_opts = require("plugin.lsp.settings.pyright")
+	 	opts = u.merge(pyright_opts, opts)
+	 end
+
 	server:setup(opts)
 
   -- CHARGE THE MANUAL PLUGINS

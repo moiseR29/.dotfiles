@@ -21,11 +21,21 @@ local sources = {
     filetypes = {'javascript', 'typescript', 'yaml', 'markdown'},
   }),
   -- formatting.stylua, --Need stylelua
+  formatting.black.with({
+    condition = function (utils)
+      return utils.root_has_file({ "pyproject.toml" })
+    end
+  }),
 
   -- diagnostics
   diagnostics.eslint.with({
     prefer_local = "./node_modules/.bin",
     filetypes = {'javascript', 'typescript', 'yaml', 'markdown'},
+  }),
+  diagnostics.flake8.with({
+    condition = function (utils)
+      return utils.root_has_file({ ".flake8" })
+    end
   }),
 
   -- Actions
@@ -54,5 +64,5 @@ nls.setup {
       ]])
     end
   end,
-  root_dir = nls_utils.root_pattern ".git",
+  root_dir = nls_utils.root_pattern(".git", ".null-ls-root"),
 }
