@@ -1,0 +1,15 @@
+#!/bin/bash
+
+# Brigtnes Control and Notification
+send_notification_bright() {
+  BRIGTN=$(brightnessctl info | awk "FNR==2" | cut -d " " -f 4 | sed 's/(//' | sed 's/)//')
+  dunstify -a "changevolume" -u low -r 9993 -h int:value:"$BRIGTN" -i "volume-$1" "Brigtness: ${BRIGTN}" -t 2000
+}
+
+if [ "$1" = "up" ]; then
+  brightnessctl set +10% -q
+  send_notification_bright up
+else
+  brightnessctl set 10%- -q
+  send_notification_bright down
+fi

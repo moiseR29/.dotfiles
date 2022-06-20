@@ -1,12 +1,13 @@
 from os import path
 import json
 
-def loadTheme(theme = 'rynx'):
-  home = path.expanduser('~')
 
-  config = path.join(home, f'.config/qtile/themes/{theme}.json')
+def loadTheme(theme="rynx"):
+    home = path.expanduser("~")
 
-  if not path.isfile(config):
-    raise Exception(f'{theme} does not exists')
+    config = path.join(home, f".config/qtile/themes/{theme}.json")
 
-  return json.load(open(config))
+    if not path.isfile(config):
+        raise Exception(f"{theme} does not exists")
+
+    return json.load(open(config))

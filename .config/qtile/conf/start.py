@@ -3,31 +3,26 @@ import os
 from .commands import detectSecondMonitor, isL15
 
 l15Screen = "xrandr --auto --output eDP-1 --mode 1366x768 --primary --left-of HDMI-1 --output HDMI-1 --mode 2560x1080"
-t430Screen = "xrandr --auto --output LVDS-1 --mode 1366x768 --primary" #--left-of HDMI-1 --output HDMI-1 --mode 2560x1080"
+t430Screen = "xrandr --auto --output LVDS-1 --mode 1366x768 --primary"  # --left-of HDMI-1 --output HDMI-1 --mode 2560x1080"
 
 l15Wpp = "feh --bg-center ~/Descargas/moon.jpg --bg-center ~/Descargas/aloy.jpg"
 t430Wpp = "feh --bg-center ~/Descargas/noche.jpg"
 
 isl15 = isL15()
 
+
 def whenStart():
-  commandsToExecuteWhenStart = [
-    "setxkbmap latam"
-  ]
+    commandsToExecuteWhenStart = ["setxkbmap latam"]
 
-  # configure second monitor
-  if detectSecondMonitor() > 1:
-    commandsToExecuteWhenStart.append(
-        l15Screen if isl15 else t430Screen
-    )
-  
-  # wallpaper
-  commandsToExecuteWhenStart.append(
-    l15Wpp if isl15 else t430Wpp
-  )
+    # configure second monitor
+    if detectSecondMonitor() > 1:
+        commandsToExecuteWhenStart.append(l15Screen if isl15 else t430Screen)
 
-  # picom
-  commandsToExecuteWhenStart.append("picom --experimental-backends -b")
+    # wallpaper
+    commandsToExecuteWhenStart.append(l15Wpp if isl15 else t430Wpp)
 
-  for command in commandsToExecuteWhenStart:
-      os.system(command)
+    # picom
+    commandsToExecuteWhenStart.append("picom --experimental-backends -b")
+
+    for command in commandsToExecuteWhenStart:
+        os.system(command)

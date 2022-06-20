@@ -295,14 +295,14 @@
     foreground = "#ffffff"
     timeout = 10
     # Icon for notifications with low urgency, uncomment to enable
-    # default_icon = /home/mrebatta/.config/dunst/normal.png
+    default_icon = /usr/share/icons/Adwaita/32x32/status/alarm-symbolic.symbolic.png
 
 [urgency_normal]
     background = "#000000"
     foreground = "#ffffff"
     timeout = 10
     # Icon for notifications with normal urgency, uncomment to enable
-    # default_icon = /home/mrebatta/.config/dunst/normal.png
+    default_icon = /usr/share/icons/Adwaita/32x32/emblems/emblem-default-symbolic.symbolic.png
 
 [urgency_critical]
     background = "#000000"
