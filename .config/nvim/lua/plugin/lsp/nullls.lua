@@ -12,15 +12,32 @@ local formatting = nls.builtins.formatting
 local diagnostics = nls.builtins.diagnostics
 local actions = nls.builtins.code_actions
 
---formatting.autopep8,
-
 local sources = {
+  -- JS | TS
   -- Formatter
   formatting.prettier.with({
     prefer_local = "./node_modules/.bin",
-    filetypes = {'javascript', 'typescript', 'yaml', 'markdown'},
+    filetypes = {'javascript', 'typescript'}, -- 'yaml', 'markdown'
   }),
-  -- formatting.stylua, --Need stylelua
+
+  -- diagnostics
+  diagnostics.eslint.with({
+    prefer_local = "./node_modules/.bin",
+    filetypes = {'javascript', 'typescript'}, -- 'yaml', 'markdown'
+  }),
+
+  -- Actions
+  actions.eslint.with({
+    prefer_local = "./node_modules/.bin",
+    filetypes = {'javascript', 'typescript'},-- 'yaml', 'markdown'
+  }),
+
+  -- LUA
+  --Formatter
+  formatting.stylua, --Need stylelua
+
+  -- Python
+  -- Formatter
   formatting.black.with({
     condition = function (utils)
       return utils.root_has_file({ "pyproject.toml" })
@@ -28,25 +45,15 @@ local sources = {
   }),
 
   -- diagnostics
-  diagnostics.eslint.with({
-    prefer_local = "./node_modules/.bin",
-    filetypes = {'javascript', 'typescript', 'yaml', 'markdown'},
-  }),
   diagnostics.flake8.with({
     condition = function (utils)
       return utils.root_has_file({ ".flake8" })
     end
   }),
 
+  -- Git
   -- Actions
-  actions.eslint.with({
-    prefer_local = "./node_modules/.bin",
-    filetypes = {'javascript', 'typescript', 'yaml', 'markdown'},
-  }),
   actions.gitsigns,
-
-  --formatting.gofmt,
-  --diagnostics.gofmt
 }
 
 nls.setup {
