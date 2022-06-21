@@ -45,9 +45,9 @@ def layoutSection(bg, arrowColor):
 
 def commandsSection(bg, arrowColor):
     return [
-        icon(bg=bg, text="", fontsize=35, padding=0),
-        texto(bg=bg, text=getCurrentWifi(), fontsize=14),
-        separator(bg=bg),
+        # icon(bg=bg, text="", fontsize=35, padding=0),
+        # texto(bg=bg, text=getCurrentWifi(), fontsize=14),
+        # separator(bg=bg),
         icon(bg=bg, text="", fontsize=35, padding=0),
         texto(bg=bg, text=dockerVersion(), fontsize=14),
         powerline(arrowColor, bg),
