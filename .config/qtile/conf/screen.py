@@ -3,19 +3,23 @@ from libqtile.config import Screen
 
 from .theme import loadTheme
 from .keys import FONT
-from .commands import dockerVersion, detectSecondMonitor
+from .commands import dockerVersion, detectSecondMonitor, getCurrentWifi
 
 COLORS = loadTheme()
 
-# FUNCTIONS
+
+def os_icon(fontsize):
+    return widget.TextBox(
+        **base("color3", "dark"), fontsize=fontsize, text="", padding=5
+    )
 
 
 def base(fg="text", bg="dark"):
     return {"foreground": COLORS[fg], "background": COLORS[bg]}
 
 
-def separator():
-    return widget.Sep(**base(), linewidth=0, padding=5)
+def separator(fg="text", bg="dark"):
+    return widget.Sep(**base(fg, bg), linewidth=0, padding=5)
 
 
 def icon(fg="text", bg="dark", fontsize=15, text="?", padding=3):
@@ -27,7 +31,56 @@ def texto(fg="text", bg="dark", fontsize=16, text="?"):
 
 
 def powerline(fg="text", bg="dark"):
-    return widget.TextBox(**base(fg, bg), text="", fontsize=50, padding=-8.1)
+    return widget.TextBox(**base(fg, bg), text="", fontsize=60, padding=-11)
+
+
+def layoutSection(bg, arrowColor):
+    return [
+        widget.CurrentLayoutIcon(**base(bg=bg), scale=0.65),
+        widget.CurrentLayout(**base(bg=bg), padding=5),
+        # Docker Section
+        powerline(arrowColor, bg),
+    ]
+
+
+def commandsSection(bg, arrowColor):
+    return [
+        icon(bg=bg, text="", fontsize=35, padding=0),
+        texto(bg=bg, text=getCurrentWifi(), fontsize=14),
+        separator(bg=bg),
+        icon(bg=bg, text="", fontsize=35, padding=0),
+        texto(bg=bg, text=dockerVersion(), fontsize=14),
+        powerline(arrowColor, bg),
+    ]
+
+
+def utilitiesSection(bg, fg, arrowColor, include=False):
+    boths = [
+        icon(bg=bg, fg=fg, text="", fontsize=30, padding=0),
+        widget.Memory(**base(bg=bg, fg=fg), measure_mem="G"),
+        widget.Battery(
+            **base(bg=bg, fg=fg),
+            format="{char} {percent:2.0%} {hour:d}:{min:02d}",
+            charge_char="",
+            discharge_char="",
+            font="MesloLGS NF",
+        ),
+        icon(bg=bg, fg=fg, text="", fontsize=20),
+        widget.PulseVolume(**base(bg=bg, fg=fg)),
+    ]
+
+    if include:
+        boths.append(widget.Systray(**base(bg=bg, fg=fg)))
+
+    boths.append(powerline(arrowColor, bg))
+    return boths
+
+
+def calendarSection(bg):
+    return [
+        icon(bg=bg, text="", fontsize=25),
+        widget.Clock(**base(bg=bg), format="%d/%m/%Y - %H:%M "),
+    ]
 
 
 def groupSpace():
@@ -45,96 +98,50 @@ def groupSpace():
             active=COLORS["active"],
             inactive=COLORS["inactive"],
             rounded=True,
-            highlight_method="block",
+            highlight_method="line",
             urgent_alert_method="block",
             urgent_border=COLORS["urgent"],
             this_current_screen_border=COLORS["focus"],
             this_screen_border=COLORS["grey"],
             other_current_screen_border=COLORS["dark"],
             other_screen_border=COLORS["dark"],
-            disable_drag=True
+            disable_drag=True,
         ),
         separator(),
         widget.WindowName(
-            **base(fg="focus"), format="{name}", max_chars=50, fontsize=14, padding=5
+            **base(fg="light"), format="{name}", max_chars=50, fontsize=14, padding=5
         ),
-        # widget.Spacer(**base(fg='focus'), length=650),
         separator(),
     ]
 
 
 primaryScreenBar = [
     # SO Log Section
-    icon(bg="dark", fg="color3", fontsize=40, text=""),  #  -> Ubuntu
+    os_icon(fontsize=35),
     separator(),
     # Group Section
     *groupSpace(),
     separator(),
-    # RAM Section
-    # powerline('color4', 'dark'),
-    # icon(bg='color4', text='', fontsize=30, padding=0),
-    # widget.Memory(**base(bg="color4"), measure_mem='G'),
-    # Docker Section
+    # ---------------------------
     powerline("color3", "dark"),
-    icon(bg="color3", text="", fontsize=35, padding=0),
-    texto(bg="color3", text=dockerVersion(), fontsize=14),
-    # Layout Section
-    # powerline('color2', 'color3'),
-    # widget.CurrentLayoutIcon(**base(bg="color2"), scale=0.65),
-    # widget.CurrentLayout(**base(bg="color2"), padding=5),
-    # Hour Section
-    powerline("dark", "color3"),
-    icon(bg="dark", fg="light", text="", fontsize=30, padding=0),
-    widget.Memory(**base(bg="dark", fg="light"), measure_mem="G"),
-    # icon(bg="dark", fg="light", text='', fontsize=18, padding=0),
-    widget.Battery(
-        **base(bg="dark", fg="light"),
-        format="{char} {percent:2.0%} {hour:d}:{min:02d}",
-        charge_char="",
-        discharge_char="",
-        font="MesloLGS NF"
-    ),
-    # Utils Sections
-    powerline("color1", "dark"),
-    icon(bg="color1", text="", fontsize=25),
-    widget.Clock(**base(bg="color1"), format="%d/%m/%Y - %H:%M "),
+    *commandsSection("color3", "dark"),
+    *utilitiesSection("dark", "color3", "color1", True),
+    *calendarSection("color1"),
 ]
 
 secondaryScreenBar = [
     # SO Log Section
-    icon(bg="dark", fg="color3", fontsize=40, text=""),  #  -> Ubuntu
+    os_icon(fontsize=40),
     separator(),
     # Group Section
     *groupSpace(),
     separator(),
-    # RAM Section
-    # powerline('color4', 'dark'),
-    # icon(bg='color4', text='', fontsize=30, padding=0),
-    # widget.Memory(**base(bg="color4"), measure_mem='G'),
-    # Layout Section
+    # ---------------------------
     powerline("color1", "dark"),
-    widget.CurrentLayoutIcon(**base(bg="color1"), scale=0.65),
-    widget.CurrentLayout(**base(bg="color1"), padding=5),
-    # Docker Section
-    powerline("color3", "color1"),
-    icon(bg="color3", text="", fontsize=40, padding=0),
-    texto(bg="color3", text=dockerVersion(), fontsize=14),
-    # Hour Section
-    powerline("dark", "color3"),
-    icon(bg="dark", fg="light", text="", fontsize=30, padding=0),
-    widget.Memory(**base(bg="dark", fg="light"), measure_mem="G"),
-    # icon(bg="dark", fg="light", text='', fontsize=18, padding=0),
-    widget.Battery(
-        **base(bg="dark", fg="light"),
-        format="{char} {percent:2.0%} {hour:d}:{min:02d}",
-        charge_char="",
-        discharge_char="",
-        font="MesloLGS NF"
-    ),
-    # Utils Sections
-    powerline("color1", "dark"),
-    icon(bg="color1", text="", fontsize=25),
-    widget.Clock(**base(bg="color1"), format="%d/%m/%Y - %H:%M "),
+    *layoutSection("color1", "color3"),
+    *commandsSection("color3", "dark"),
+    *utilitiesSection("dark", "color3", "color1"),
+    *calendarSection("color1"),
 ]
 
 screens = [
