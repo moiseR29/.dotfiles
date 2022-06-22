@@ -1,7 +1,7 @@
 from os import path
 import json
 
-DEFAULT_THEME = "rxynh"
+DEFAULT_THEME = "rxyhn"
 
 
 def getThemeConfiguration():
