@@ -10,4 +10,3 @@ auto_minimize = True
 wl_input_rules = None
 
 wmname = "LG3D"
-

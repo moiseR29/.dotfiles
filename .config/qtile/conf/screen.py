@@ -3,7 +3,7 @@ from libqtile.config import Screen
 
 from .theme import loadTheme
 from .keys import FONT
-from .commands import dockerVersion, detectSecondMonitor, getCurrentWifi
+from .commands import dockerVersion, detectSecondMonitor
 
 COLORS = loadTheme()
 

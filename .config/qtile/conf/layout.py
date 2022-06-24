@@ -15,7 +15,7 @@ general_configure = {
 layouts = [
     layout.Columns(**general_configure),
     layout.Max(),
-    layout.MonadTall(**general_configure),
+    # layout.MonadTall(**general_configure),
     # layout.Bsp(),
     # layout.Matrix(**general_configure),
 ]

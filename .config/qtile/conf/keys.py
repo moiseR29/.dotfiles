@@ -79,8 +79,8 @@ keys = [
     Key([mod, CONTROL_KEY], "b", lazy.spawn("beekeeper-studio")),
     Key([mod, CONTROL_KEY], "m", lazy.spawn("mailspring")),
     # Screenshot
-    Key([mod], "p", lazy.spawn("scrot")),
-    Key([mod, SHIFT_KEY], "p", lazy.spawn("scrot -s")),
+    Key([mod], "p", lazy.spawn("takepic")),
+    Key([mod, SHIFT_KEY], "p", lazy.spawn("takepic -s")),
     # Hardware
     # Volumen
     Key(
@@ -98,7 +98,7 @@ keys = [
     Key([], "XF86MonBrightnessUp", lazy.spawn("changebright up")),
     Key([], "XF86MonBrightnessDown", lazy.spawn("changebright down")),
     # SO
-    Key([mod], "o", lazy.spawn("shutdown now")),
+    # Key([mod], "o", lazy.spawn("shutdown now")),
     # Audio Graphical
     Key([mod, CONTROL_KEY], "a", lazy.spawn("pavucontrol")),
     # Screens
