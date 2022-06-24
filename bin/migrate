@@ -36,41 +36,49 @@ create_db_local() {
 }
 
 restore_op() {
-  docker exec -ti oppizi-database pg_restore -C --verbose --dbname=$1 --username=$2 --host=localhost /dumps/$3.dump
+  docker exec -ti oppizi-database pg_restore --verbose --dbname=$1 --username=$2 --host=localhost /dumps/$3.dump
 }
 
-echo "Welcome to Oppizi DumpsManager, what do you need?"
-printf "\n1. Dump\n2. Restore\n"
-
-read -p "Option, Please input the number: " OPT_N
-
-check_exists_docker
-check_exists_dicc
-
-if [ "$OPT_N" = "1" ]; then
-
+dump_proces() {
   printf "1. Phoebe\n2. Titan\n3. Prod\n"
   read -p "Which Env ? " W_ENV
-  DTT=$(date | cut -d ' ' -f 2,3,5 | sed 's/ /_/g' | sed 's/:/_/g')
-  D_NAME="PHOEBE-$DTT"
 
+  DTT=$(date | cut -d ' ' -f 2,3,5 | sed 's/ /_/g' | sed 's/:/_/g')
   case $W_ENV in
     1)
-      dump_op "$PHOEBE_PASS_PZ" "$PHOEBE_DB_PZ" "$PHOEBE_USER_PZ" "$PHOEBE_URL_PZ" $COMMON_PORT "$D_NAME";;
+      if [ "$1" = "--invoker" ]; then
+        D_NAME="PHOEBE-INVOKER-$DTT"
+        dump_op "$INVOKER_PHOEBE_PASS_PZ" "$INVOKER_PHOEBE_DB_PZ" "$INVOKER_PHOEBE_USER_PZ" "$INVOKER_PHOEBE_URL_PZ" $COMMON_PORT "$D_NAME"
+      else
+        D_NAME="PHOEBE-$DTT"
+        dump_op "$PHOEBE_PASS_PZ" "$PHOEBE_DB_PZ" "$PHOEBE_USER_PZ" "$PHOEBE_URL_PZ" $COMMON_PORT "$D_NAME"
+      fi;;
     2)
-      echo "For the moment Titan is down";;
+      if [ "$1" = "--invoker" ]; then
+        D_NAME="TITAN-INVOKER-$DTT"
+        dump_op "$INVOKER_TITAN_PASS_PZ" "$INVOKER_TITAN_DB_PZ" "$INVOKER_TITAN_USER_PZ" "$INVOKER_TITAN_URL_PZ" $COMMON_PORT "$D_NAME"
+      else
+        D_NAME="TITAN-$DTT"
+        echo "For the moment Titan is down"
+      fi;;
     3)
-      dump_op "$PROD_PASS_PZ" "$PROD_DB_PZ" "$PROD_USER_PZ" "$PROD_URL_PZ" $COMMON_PORT "$D_NAME";;
+      if [ "$1" = "--invoker" ]; then
+        D_NAME="PROD-INVOKER-$DTT"
+        dump_op "$INVOKER_PROD_PASS_PZ" "$INVOKER_PROD_DB_PZ" "$INVOKER_PROD_USER_PZ" "$INVOKER_PROD_URL_PZ" $COMMON_PORT "$D_NAME"
+      else
+        D_NAME="PROD-$DTT"
+        dump_op "$PROD_PASS_PZ" "$PROD_DB_PZ" "$PROD_USER_PZ" "$PROD_URL_PZ" $COMMON_PORT "$D_NAME"
+      fi;;
     *)
       echo "Invalid Option"
       exit 1;;
   esac
 
-elif [ "$OPT_N" = "2" ]; then
+}
 
+restore_process() {
   read -p "before to restoring, is there a base to restore in oppizi-database (y/n): " FFFF
   if [ "$FFFF" = "y" ];then
-
     USERNAME_DEF=oppizi
     PASSWORD_DEF=password
     DB_DEF=superf
@@ -87,11 +95,28 @@ elif [ "$OPT_N" = "2" ]; then
       read -p "Please enter name file to restore : " D_NAME_F
       restore_op "$D_NAME_D" "$USERNAME_DEF" "$D_NAME_F"
     fi
-
   else
     echo "Please create to database on oppizi-database :D"
   fi
 
+}
+
+ENVRT=$1
+
+echo "Welcome to Oppizi DumpsManager, what do you need?"
+printf "\n1. Dump\n2. Restore\n"
+
+read -p "Option, Please input the number: " OPT_N
+
+check_exists_docker
+check_exists_dicc
+
+if [ "$OPT_N" = "1" ]; then
+  dump_proces "$ENVRT"
+  exit 0;
+elif [ "$OPT_N" = "2" ]; then
+  restore_process
+  exit 0;
 else
     echo "Invalid Option"
     exit 1;
