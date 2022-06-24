@@ -1,0 +1,98 @@
+#!/bin/bash
+
+set -e
+
+check_exists_docker() {
+  echo "First review if you have docker"
+  if [ -z "$(which docker 2>/dev/null)" ]; then
+    echo "do you need have a docker installed"
+    exit 1
+  fi
+
+}
+
+check_exists_dicc() {
+  if [ ! -d "$DEF_DUMP_OUTPUT" ]; then
+    echo "creating default output ... $DEF_DUMP_OUTPUT"
+    mkdir -p "$DEF_DUMP_OUTPUT"
+  fi
+}
+
+dump_op() {
+  echo "Connect to $4 with $3"
+  docker run --rm -v $DEF_DUMP_OUTPUT:/dumps -e PGPASSWORD=$1 postgres:14-alpine pg_dump --verbose --file=/dumps/$6.dump --format=custom --dbname=$2 --username=$3 --host=$4 --port=$5
+}
+
+create_db_local() {
+  EXS=$(docker ps -a | grep oppizi-database)
+  if [ ! -z "$EXS" ]; then
+    docker start oppizi-database
+  else
+    echo "waiting to up docker..."
+    echo "Password: $1 - User: $2"
+    docker run --name oppizi-database -p 5432:5432 -v $DEF_DUMP_OUTPUT:/dumps -e POSTGRES_PASSWORD=$1 -e POSTGRES_USER=$2 -e POSTGRES_DB=$3 -d postgres:14-alpine
+    sleep 7
+  fi
+}
+
+restore_op() {
+  docker exec -ti oppizi-database pg_restore -C --verbose --dbname=$1 --username=$2 --host=localhost /dumps/$3.dump
+}
+
+echo "Welcome to Oppizi DumpsManager, what do you need?"
+printf "\n1. Dump\n2. Restore\n"
+
+read -p "Option, Please input the number: " OPT_N
+
+check_exists_docker
+check_exists_dicc
+
+if [ "$OPT_N" = "1" ]; then
+
+  printf "1. Phoebe\n2. Titan\n3. Prod\n"
+  read -p "Which Env ? " W_ENV
+  DTT=$(date | cut -d ' ' -f 2,3,5 | sed 's/ /_/g' | sed 's/:/_/g')
+  D_NAME="PHOEBE-$DTT"
+
+  case $W_ENV in
+    1)
+      dump_op "$PHOEBE_PASS_PZ" "$PHOEBE_DB_PZ" "$PHOEBE_USER_PZ" "$PHOEBE_URL_PZ" $COMMON_PORT "$D_NAME";;
+    2)
+      echo "For the moment Titan is down";;
+    3)
+      dump_op "$PROD_PASS_PZ" "$PROD_DB_PZ" "$PROD_USER_PZ" "$PROD_URL_PZ" $COMMON_PORT "$D_NAME";;
+    *)
+      echo "Invalid Option"
+      exit 1;;
+  esac
+
+elif [ "$OPT_N" = "2" ]; then
+
+  read -p "before to restoring, is there a base to restore in oppizi-database (y/n): " FFFF
+  if [ "$FFFF" = "y" ];then
+
+    USERNAME_DEF=oppizi
+    PASSWORD_DEF=password
+    DB_DEF=superf
+    create_db_local "$PASSWORD_DEF" "$USERNAME_DEF" "$DB_DEF"
+    read -p "Please enter database name to restore: " D_NAME_D
+    read -p "do you use the last item created ? (y/n): " R_USR
+    if [ "$R_USR" = "y" ]; then
+      #D_NAME_F=$(ls -lt $DEF_DUMP_OUTPUT | awk 'FNR==1' | rev | cut -d " " -f 1 | rev | cut -d '.' -f 1)
+      D_NAME_F=$(ls -lt $DEF_DUMP_OUTPUT | grep '.dump' | awk 'FNR==1' | rev | cut -d " " -f 1 | rev | cut -d '.' -f 1)
+      echo $DEF_DUMP_OUTPUT
+      echo $D_NAME_F
+      restore_op "$D_NAME_D" "$USERNAME_DEF" "$D_NAME_F"
+    else
+      read -p "Please enter name file to restore : " D_NAME_F
+      restore_op "$D_NAME_D" "$USERNAME_DEF" "$D_NAME_F"
+    fi
+
+  else
+    echo "Please create to database on oppizi-database :D"
+  fi
+
+else
+    echo "Invalid Option"
+    exit 1;
+fi
