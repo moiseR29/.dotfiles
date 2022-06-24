@@ -4,7 +4,7 @@ if not present then
   return
 end
 
-require("theme").load_highlight("alpha")
+require("base46").load_highlight "alpha"
 
 local function button(sc, txt, keybind)
   local sc_ = sc:gsub("%s", ""):gsub("SPC", "<leader>")
@@ -34,7 +34,7 @@ local function button(sc, txt, keybind)
   }
 end
 
-local options = { }
+local options = {}
 
 -- local ascii = {
 --    "   ⣴⣶⣤⡤⠦⣤⣀⣤⠆     ⣈⣭⣿⣶⣿⣦⣼⣆          ",
@@ -51,14 +51,14 @@ local options = { }
 -- }
 
 local ascii = {
-    "                                                     ",
-    "  ███╗   ██╗███████╗ ██████╗ ██╗   ██╗██╗███╗   ███╗ ",
-    "  ████╗  ██║██╔════╝██╔═══██╗██║   ██║██║████╗ ████║ ",
-    "  ██╔██╗ ██║█████╗  ██║   ██║██║   ██║██║██╔████╔██║ ",
-    "  ██║╚██╗██║██╔══╝  ██║   ██║╚██╗ ██╔╝██║██║╚██╔╝██║ ",
-    "  ██║ ╚████║███████╗╚██████╔╝ ╚████╔╝ ██║██║ ╚═╝ ██║ ",
-    "  ╚═╝  ╚═══╝╚══════╝ ╚═════╝   ╚═══╝  ╚═╝╚═╝     ╚═╝ ",
-    "                                                     ",
+  "                                                     ",
+  "  ███╗   ██╗███████╗ ██████╗ ██╗   ██╗██╗███╗   ███╗ ",
+  "  ████╗  ██║██╔════╝██╔═══██╗██║   ██║██║████╗ ████║ ",
+  "  ██╔██╗ ██║█████╗  ██║   ██║██║   ██║██║██╔████╔██║ ",
+  "  ██║╚██╗██║██╔══╝  ██║   ██║╚██╗ ██╔╝██║██║╚██╔╝██║ ",
+  "  ██║ ╚████║███████╗╚██████╔╝ ╚████╔╝ ██║██║ ╚═╝ ██║ ",
+  "  ╚═╝  ╚═══╝╚══════╝ ╚═════╝   ╚═══╝  ╚═╝╚═╝     ╚═╝ ",
+  "                                                     ",
 }
 
 options.header = {
@@ -79,7 +79,7 @@ options.buttons = {
     button("SPC b m", "  Bookmarks  ", ":Telescope marks<CR>"),
     button("SPC t h", "  Themes  ", ":Telescope themes<CR>"),
     button("SPC e s", "  Settings", ":e $MYVIMRC | :cd %:p:h <CR>"),
-   },
+  },
   opts = {
     spacing = 1,
   },
@@ -91,12 +91,12 @@ local marginTopPercent = 0.3
 local headerPadding = fn.max { 2, fn.floor(fn.winheight(0) * marginTopPercent) }
 
 alpha.setup {
-   layout = {
-      { type = "padding", val = headerPadding },
-      options.header,
-      { type = "padding", val = 2 },
-      options.buttons,
-   },
-   opts = {},
+  layout = {
+    { type = "padding", val = headerPadding },
+    options.header,
+    { type = "padding", val = 2 },
+    options.buttons,
+  },
+  opts = {},
 }
 --alpha.setup(require("alpha.themes.startify").config)

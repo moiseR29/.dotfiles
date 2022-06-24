@@ -8,6 +8,9 @@ Plug "nvim-lua/plenary.nvim"
 -- iconst
 Plug "kyazdani42/nvim-web-devicons"
 
+-- Theme
+Plug "moiseR29/base46"
+
 -- buffer with tabs as vscode
 Plug("akinsho/bufferline.nvim", { ["tag"] = "v2.*" })
 

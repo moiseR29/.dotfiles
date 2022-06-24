@@ -4,8 +4,8 @@ if not present then
   return
 end
 
-require("theme").load_highlight("syntax")
-require("theme").load_highlight("treesitter")
+require("base46").load_highlight("syntax")
+require("base46").load_highlight("treesitter")
 
 local options = {
   ensure_installed = { "python", "javascript", "typescript", "go", "lua", "markdown", "yaml", "json", "bash" },

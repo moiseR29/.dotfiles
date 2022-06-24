@@ -4,10 +4,10 @@ if not present then
   return
 end
 
-require("theme").load_highlight("blankline")
+require("base46").load_highlight "blankline"
 
 vim.opt.list = true
-vim.opt.listchars:append("space:⋅")
+vim.opt.listchars:append "space:⋅"
 
 local options = {
   show_end_of_line = false,
@@ -30,6 +30,4 @@ local options = {
   show_first_indent_level = false,
 }
 
-
 blankline.setup(options)
-

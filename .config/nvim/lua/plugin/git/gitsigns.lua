@@ -4,9 +4,9 @@ if not present then
   return
 end
 
-local u = require("utils")
+local u = require "utils"
 
-require("theme").load_highlight("git")
+require("base46").load_highlight "git"
 
 local options = {
   signs = {
@@ -16,7 +16,7 @@ local options = {
     topdelete = { hl = "DiffDelete", text = "‾", numhl = "GitSignsDeleteNr" },
     changedelete = { hl = "DiffChangeDelete", text = "~", numhl = "GitSignsChangeNr" },
   },
-  current_line_blame = true
+  current_line_blame = true,
 }
 
 u.keymap("n", "<leader>gsp", "<cmd> Gitsigns preview_hunk <CR>")

@@ -4,7 +4,7 @@ if not present then
   return
 end
 
-require("theme").load_highlight("cmp")
+require("base46").load_highlight("cmp")
 
 vim.opt.completeopt = "menuone,noselect"
 

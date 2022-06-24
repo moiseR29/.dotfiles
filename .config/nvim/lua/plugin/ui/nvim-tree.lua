@@ -4,14 +4,14 @@ if not present then
   return
 end
 
-require("theme").load_highlight("nvimtree")
+require("base46").load_highlight "nvimtree"
 
-local u = require("utils")
+local u = require "utils"
 
 local options = {
   filters = {
-     dotfiles = false,
-     exclude = { "custom" },
+    dotfiles = false,
+    exclude = { "custom" },
   },
   disable_netrw = true,
   hijack_netrw = true,
@@ -30,7 +30,7 @@ local options = {
     width = 40,
     hide_root_folder = true,
     number = true,
-    relativenumber = true
+    relativenumber = true,
   },
   git = {
     enable = true,
@@ -45,7 +45,7 @@ local options = {
     highlight_git = false,
     highlight_opened_files = "none",
     indent_markers = {
-       enable = false,
+      enable = false,
     },
     icons = {
       padding = " ",
@@ -87,7 +87,7 @@ local options = {
         },
       },
     },
-   },
+  },
 }
 
 nvimtree.setup(options)

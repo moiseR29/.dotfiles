@@ -1,16 +1,16 @@
 local present, bufferline = pcall(require, "bufferline")
 
-local u = require("utils")
+local u = require "utils"
 
 if not present then
   return
 end
 
-require("theme").load_highlight("bufferline")
+require("base46").load_highlight "bufferline"
 
 vim.cmd [[
  function! Toggle_theme(a,b,c,d)
-   lua require('theme').toggle_theme()
+   lua require('base46').toggle_theme()
  endfunction
  function! Quit_vim(a,b,c,d)
      qa
@@ -81,5 +81,6 @@ u.keymap("n", "<TAB>", "<cmd> BufferLineCycleNext <CR>")
 u.keymap("n", "<S-Tab>", "<cmd> BufferLineCyclePrev <CR>")
 
 -- close buffer
-u.keymapFunction("n", "<A-w>", function() u.close_buffer() end)
-
+u.keymapFunction("n", "<A-w>", function()
+  u.close_buffer()
+end)

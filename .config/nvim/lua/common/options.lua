@@ -1,16 +1,16 @@
-local u = require("utils")
+local u = require "utils"
 
 local options = {
-  laststatus = 3,             -- *
+  laststatus = 3, -- *
   --statusline = "%!v:lua.require'ui.statusline'.run()",
   showmode = false,
-  title = true,               -- *
+  title = true, -- *
   clipboard = "unnamedplus",
   expandtab = true,
   shiftwidth = 2,
   smartindent = true,
-  ignorecase = true,      -- REVIEW
-  smartcase = true,      -- REVIEW *
+  ignorecase = true, -- REVIEW
+  smartcase = true, -- REVIEW *
   mouse = "a",
   number = true,
   numberwidth = 1,
@@ -21,31 +21,31 @@ local options = {
 
   --errorbells = false,     -- REVIEW
   relativenumber = true,
-  wrap = false,           -- REVIEW
-  swapfile = false,       -- REVIEW
-  backup = false,         -- REVIEW
+  wrap = false, -- REVIEW
+  swapfile = false, -- REVIEW
+  backup = false, -- REVIEW
   fileencoding = "utf-8",
   encoding = "utf-8",
   cursorline = true,
-  smarttab = true,        -- REVIEW
+  smarttab = true, -- REVIEW
   softtabstop = 2,
   completeopt = { "menuone", "noselect" },
 }
 
-for k,v in pairs(options) do
+for k, v in pairs(options) do
   u.addOpt(k, v)
 end
 
 local global_options = {
-  nvchad_theme = "onedark",
+  m_theme = "tokyonight", --"tokyonight",
   toggle_theme_icon = "   ",
   transparency = false,
   theme_switcher_loaded = false,
   did_load_filetypes = 0,
-  do_filetype_lua = 1
+  do_filetype_lua = 1,
 }
 
-for k,v in pairs(global_options) do
+for k, v in pairs(global_options) do
   u.global(k, v)
 end
 
@@ -59,9 +59,9 @@ end
 --vim.cmd('filetype plugin indent on')
 
 local default_plugins = {
-   "syntax",
+  "syntax",
 }
 
 for _, plugin in pairs(default_plugins) do
-   vim.g["loaded_" .. plugin] = 1
+  vim.g["loaded_" .. plugin] = 1
 end

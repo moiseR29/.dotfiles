@@ -146,6 +146,6 @@ local icons = {
    },
 }
 
-require("theme").load_highlight("devicons")
+require("base46").load_highlight("devicons")
 
 devicons.setup({ override = icons })

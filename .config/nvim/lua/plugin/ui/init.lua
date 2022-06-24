@@ -1,5 +1,5 @@
 -- ui
-require("plugin.ui.base46")
+require("plugin.ui.base46c")
 require("plugin.ui.nvim-web-devicons")
 require("plugin.ui.bufferline")
 require("plugin.ui.indent-blankline")
