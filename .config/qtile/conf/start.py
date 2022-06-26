@@ -5,7 +5,7 @@ from .commands import detectSecondMonitor, isL15
 l15Screen = "xrandr --auto --output eDP-1 --mode 1366x768 --primary --left-of HDMI-1 --output HDMI-1 --mode 2560x1080"
 t430Screen = "xrandr --auto --output LVDS-1 --mode 1366x768 --primary"  # --left-of HDMI-1 --output HDMI-1 --mode 2560x1080"
 
-l15Wpp = "feh --bg-center ~/Descargas/moon.jpg --bg-center ~/Descargas/aloy.jpg"
+l15Wpp = "feh --bg-center ~/.config/qtile/wallpapers/moon.jpg --bg-center ~/.config/qtile/wallpapers/aloy.jpg"
 t430Wpp = "feh --bg-center ~/Descargas/noche.jpg"
 
 isl15 = isL15()
