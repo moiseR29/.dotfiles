@@ -62,6 +62,9 @@ local sources = {
   -- diagnostics
   diagnostics.shellcheck,
 
+  -- Actions
+  actions.shellcheck,
+
   -- Terraform
   formatting.terraform_fmt,
 
