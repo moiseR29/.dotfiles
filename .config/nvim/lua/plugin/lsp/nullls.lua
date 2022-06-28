@@ -51,6 +51,20 @@ local sources = {
     end,
   },
 
+  -- GO
+  -- diagnostics
+  diagnostics.golangci_lint,
+
+  -- Format
+  formatting.gofmt,
+
+  -- SHELL
+  -- diagnostics
+  diagnostics.shellcheck,
+
+  -- Terraform
+  formatting.terraform_fmt,
+
   -- Git
   -- Actions
   actions.gitsigns,

@@ -37,6 +37,11 @@ lsp_installer.on_server_ready(function(server)
     opts = u.merge(tflint_opts, opts)
   end
 
+  if server.name == "terraformls" then
+    local terraformls_opts = require "plugin.lsp.settings.terraformls"
+    opts = u.merge(terraformls_opts, opts)
+  end
+
   if server.name == "bashls" then
     local bashls_opts = require "plugin.lsp.settings.bashls"
     opts = u.merge(bashls_opts, opts)
@@ -45,11 +50,6 @@ lsp_installer.on_server_ready(function(server)
   if server.name == "sqlls" then
     local sqlls_opts = require "plugin.lsp.settings.sqlls"
     opts = u.merge(sqlls_opts, opts)
-  end
-
-  if server.name == "grammarly" then
-    local grammarly_opts = require "plugin.lsp.settings.grammarly"
-    opts = u.merge(grammarly_opts, opts)
   end
 
   if server.name == "yamlls" then
@@ -68,9 +68,4 @@ lsp_installer.on_server_ready(function(server)
   end
 
   server:setup(opts)
-
-  -- CHARGE THE MANUAL PLUGINS
-  --require("plugin.lsp.settings.terraformls")
-  --require("plugin.lsp.settings.terraformlsp")
-  -- require("plugin.lsp.nullls").setup(opts)
 end)
