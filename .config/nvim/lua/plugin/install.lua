@@ -84,4 +84,7 @@ Plug("mg979/vim-visual-multi", { branch = "master" })
 -- schemas for json
 Plug "b0o/schemastore.nvim"
 
+-- Terminal
+Plug("akinsho/toggleterm.nvim", { ["tag"] = "v1.*" })
+
 vim.call "plug#end"

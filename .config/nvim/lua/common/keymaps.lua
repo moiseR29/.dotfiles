@@ -1,4 +1,4 @@
-local u = require("utils")
+local u = require "utils"
 
 -- reset space key
 u.keymap("", "<Space>", "<Nop>")
@@ -22,14 +22,10 @@ u.keymap("n", "<leader>r", ":vs<CR>")
 u.keymap("n", "<leader>b", ":sp<CR>")
 
 -- resize windows
-u.keymap("n", "<right>", ":vertical resize +3<CR>")
-u.keymap("n", "<left>", ":vertical resize -3<CR>")
-u.keymap("n", "<up>", ":resize -3<CR>")
-u.keymap("n", "<down>", ":resize +3<CR>")
-
--- open/close terminal
--- u.keymap("v", "<c-t>", ":split<CR>:ter<CR>")
--- u.keymap("n", "<c-t>", ":split<CR>:ter<CR>")
+u.keymap("n", "<left>", ":vertical resize +3<CR>")
+u.keymap("n", "<right>", ":vertical resize -3<CR>")
+u.keymap("n", "<down>", ":resize -3<CR>")
+u.keymap("n", "<up>", ":resize +3<CR>")
 
 -- create buffer
 u.keymap("n", "<leader>t", ":tabe<CR>")

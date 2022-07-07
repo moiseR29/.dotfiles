@@ -35,16 +35,16 @@ local options = {
     show_buffer_close_icons = true,
     separator_style = "thin",
     always_show_bufferline = true,
-    diagnostics = false,
+    diagnostics = "nvim_lsp",
     themable = true,
 
     custom_areas = {
-      right = function()
-        return {
-          { text = "%@Toggle_theme@" .. vim.g.toggle_theme_icon .. "%X" },
-          { text = "%@Quit_vim@ %X" },
-        }
-      end,
+      -- right = function()
+      --   return {
+      --     { text = "%@Toggle_theme@" .. vim.g.toggle_theme_icon .. "%X" },
+      --     { text = "%@Quit_vim@ %X" },
+      --   }
+      -- end,
     },
 
     custom_filter = function(buf_number)
