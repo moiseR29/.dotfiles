@@ -15,7 +15,8 @@ Plug "moiseR29/base46"
 Plug("akinsho/bufferline.nvim", { ["tag"] = "v2.*" })
 
 -- indentations
-Plug "lukas-reineke/indent-blankline.nvim"
+--Plug "lukas-reineke/indent-blankline.nvim"
+Plug "yggdroot/indentline"
 
 -- hexa in colors
 Plug "NvChad/nvim-colorizer.lua"

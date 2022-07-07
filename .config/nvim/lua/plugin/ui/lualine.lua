@@ -11,7 +11,17 @@ local colors = {
   white = "#D9D7D6",
   red = "#DF5B61",
   purple = "#C488EC",
-  grey = "#313c40"
+  grey = "#313c40",
+}
+
+local colorsOneDark = {
+  blue = "#61afef",
+  cyan = "#a3b8ef",
+  black = "#1e222a",
+  white = "#abb2bf",
+  red = "#e06c75",
+  purple = "#de98fd",
+  grey = "#42464e",
 }
 
 local rxyhn = {
@@ -32,31 +42,49 @@ local rxyhn = {
   },
 }
 
+local oneDark = {
+  normal = {
+    a = { fg = colorsOneDark.blue, bg = colorsOneDark.black },
+    b = { fg = colorsOneDark.blue, bg = colorsOneDark.black },
+    c = { fg = colorsOneDark.blue, bg = colorsOneDark.black },
+  },
+
+  insert = { a = { fg = colorsOneDark.white, bg = colorsOneDark.black } },
+  visual = { a = { fg = colorsOneDark.grey, bg = colorsOneDark.black } },
+  replace = { a = { fg = colorsOneDark.red, bg = colorsOneDark.black } },
+
+  inactive = {
+    a = { fg = colorsOneDark.white, bg = colorsOneDark.grey },
+    b = { fg = colorsOneDark.white, bg = colorsOneDark.grey },
+    c = { fg = colorsOneDark.white, bg = colorsOneDark.grey },
+  },
+}
+
 local options = {
   options = {
     icons_enabled = true,
-    theme = rxyhn,
-    component_separators = { left = ' ', right = ' '},
-    section_separators = { left = ' ﰌ    ', right = '  '},
+    theme = oneDark,
+    component_separators = { left = " ﰌ    ", right = " " },
+    section_separators = { left = " ", right = "  " },
   },
   sections = {
-    lualine_a = { { 'mode', upper = true } },
-    lualine_b = { 'diff', { 'branch', icon = '' }, {'filename', path = 1} },
-    lualine_c = {  },
-    lualine_x = { { 'diagnostics', sources = { 'nvim_diagnostic' } }, 'filetype' },
-    lualine_y = {'lineinfo', 'progress'},
-    lualine_z = {'location'}
+    lualine_a = { { "mode", upper = true } },
+    lualine_b = { "diff", { "branch", icon = "" }, { "filename", path = 1 } },
+    lualine_c = {},
+    lualine_x = { { "diagnostics", sources = { "nvim_diagnostic" } }, "filetype" },
+    lualine_y = { "lineinfo", "progress" },
+    lualine_z = { "location" },
   },
   inactive_sections = {
     lualine_a = {},
-    lualine_b = {'branch'},
-    lualine_c = {'filename'},
-    lualine_x = {'      '},
+    lualine_b = { "branch" },
+    lualine_c = { "filename" },
+    lualine_x = { "      " },
     lualine_y = {},
-    lualine_z = {}
+    lualine_z = {},
   },
   tabline = {},
-  extensions = { "nvim-tree" }
+  extensions = { "nvim-tree" },
 }
 
 lualine.setup(options)

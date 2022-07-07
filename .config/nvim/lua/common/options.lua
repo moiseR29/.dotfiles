@@ -37,7 +37,7 @@ for k, v in pairs(options) do
 end
 
 local global_options = {
-  m_theme = "tokyonight", --"tokyonight",
+  m_theme = "rxyhn", --"tokyonight",
   toggle_theme_icon = "   ",
   transparency = false,
   theme_switcher_loaded = false,
