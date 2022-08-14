@@ -78,6 +78,8 @@ keys = [
     Key([mod], "n", lazy.spawn("notable")),
     Key([mod, CONTROL_KEY], "b", lazy.spawn("beekeeper-studio")),
     Key([mod, CONTROL_KEY], "m", lazy.spawn("mailspring")),
+    Key([mod, CONTROL_KEY], "i", lazy.spawn("insonmia")),
+    Key([mod, SHIFT_KEY], "i", lazy.spawn("postman")),
     # Screenshot
     Key([mod], "p", lazy.spawn("takepic")),
     Key([mod, SHIFT_KEY], "p", lazy.spawn("takepic -s")),

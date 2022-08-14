@@ -33,7 +33,9 @@ group_configure = [
         {
             "label": "ﱲ",
             "layout": "columns",
-            "matches": [Match(wm_class=["insomnia", "notable", "beekeeper-studio"])],
+            "matches": [
+                Match(wm_class=["insomnia", "notable", "beekeeper-studio", "postman"])
+            ],
         },
     ),
     (
