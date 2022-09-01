@@ -17,13 +17,13 @@ M.setup = function()
   end
 
   local config = {
-    virtual_text = {
-      prefix = "",
-    },
+    -- virtual_text = {
+    --   prefix = "",
+    -- },
     signs = true,
     underline = true,
     update_in_insert = false,
-    --virtual_text = false,
+    virtual_text = false,
     --signs = {
     --  active = signs,
     --},
@@ -82,17 +82,20 @@ end
 
 local function lsp_highlight_document(client)
   -- Set autocommands conditional on server_capabilities
+  -- autocmd CursorHold <buffer> lua vim.diagnostic.open_float(nil, {focus=false}) This line show diagnostics
   if client.resolved_capabilities.document_highlight then
     vim.api.nvim_exec(
       [[
       augroup lsp_document_highlight
         autocmd! * <buffer>
         autocmd CursorHold <buffer> lua vim.lsp.buf.document_highlight()
+        autocmd CursorHold <buffer> lua vim.diagnostic.open_float(nil, {focus=false})
         autocmd CursorMoved <buffer> lua vim.lsp.buf.clear_references()
       augroup END
     ]],
       false
     )
+    vim.o.updatetime = 500
   end
 end
 

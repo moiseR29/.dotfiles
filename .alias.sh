@@ -22,7 +22,7 @@ alias minikube="sudo minikube"
 
 # Conditional Alias
 if [ $(which bat) ]; then
-  alias cat='bat --theme="Dracula" --style="numbers,changes,header"'
+  alias bt='bat --theme="Dracula" --style="numbers,changes,header"'
   bhelp() {
       "$@" --help 2>&1 | bat --plain --language=help
   }

@@ -16,7 +16,7 @@ group_configure = [
         {
             "label": "",
             "layout": "columns",
-            "matches": [Match(wm_class=["alacritty", "terminator"])],
+            "matches": [Match(wm_class=["alacritty", "terminator", "insomnia"])],
             "init": True,
         },
     ),
@@ -34,7 +34,7 @@ group_configure = [
             "label": "ﱲ",
             "layout": "columns",
             "matches": [
-                Match(wm_class=["insomnia", "notable", "beekeeper-studio", "postman"])
+                Match(wm_class=["notable", "beekeeper-studio", "postman"])
             ],
         },
     ),
