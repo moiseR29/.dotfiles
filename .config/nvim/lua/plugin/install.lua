@@ -88,4 +88,7 @@ Plug "b0o/schemastore.nvim"
 -- Terminal
 Plug("akinsho/toggleterm.nvim", { ["tag"] = "v1.*" })
 
+-- Test
+Plug "kubejm/jest.nvim"
+
 vim.call "plug#end"
