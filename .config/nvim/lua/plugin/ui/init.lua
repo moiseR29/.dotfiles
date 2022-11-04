@@ -20,4 +20,4 @@ require "plugin.ui.nvim-tree"
 require "plugin.ui.lualine"
 
 --terminal
-require "plugin.ui.terminal"
+--require "plugin.ui.terminal"
