@@ -1,22 +1,19 @@
 [global_config]
   window_state = maximise
-  title_hide_sizetext = True
-  title_transmit_bg_color = "#000000"
-  title_receive_fg_color = "#eeeeec"
-  title_receive_bg_color = "#000000"
-  title_inactive_fg_color = "#eeeeec"
-  title_inactive_bg_color = "#000000"
-  title_use_system_font = False
+  borderless = True
+  extra_styling = False
 [keybindings]
 [profiles]
   [[default]]
     icon_bell = False
     background_darkness = 0.78
     background_type = transparent
-    cursor_color = "#aaaaaa"
+    font = MesloLGS NF 10
     show_titlebar = False
+    scroll_on_output = True
     scrollback_lines = 2000
     scrollback_infinite = True
+    use_system_font = False
     copy_on_selection = True
 [layouts]
   [[default]]
@@ -28,4 +25,6 @@
       parent = ""
       type = Window
 [plugins]
+
+
 
