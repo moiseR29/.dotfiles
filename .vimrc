@@ -1,1 +1,5 @@
-so $HOME/.dotfiles/configs/nvim/init.vim
+luafile $HOME/.dotfiles/.config/nvim/init.lua
+
+
+"so $HOME/.dotfiles/.config/nvim/init.vim
+
