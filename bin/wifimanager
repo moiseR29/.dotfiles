@@ -1,0 +1,30 @@
+#!/bin/bash
+
+listWifiAvailable() {
+  nmcli dev wifi list
+}
+
+showCurrentWifi() {
+  nmcli dev status
+}
+
+printf "Hello to WifiManager, what do you need today?:\n1. List wifi\n2. Current Wifi\n3. connect to new wifi \n4. Connect to exists wifi \n5. Disconnect to Wifi\n"
+
+read -p "Enter Option: " OPTION
+
+if [ "$OPTION" = "1" ]; then
+  echo "nmcli dev wifi list"
+elif [ "$OPTION" = "2" ]; then
+  echo "nmcli dev status"
+elif [ "$OPTION" = "3" ]; then
+  echo "this command need sudo"
+  echo "nmcli dev wifi connect 'RED' password 'PASSWORD'"
+elif [ "$OPTION" = "4" ]; then
+  echo "this command need sudo"
+  echo "nmcli con up 'RED'"
+elif [ "$OPTION" = "5" ]; then
+  echo "this command need sudo"
+  echo "nmcli con down 'RED'"
+else
+  echo "Option is not valid!"
+fi

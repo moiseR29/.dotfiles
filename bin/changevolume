@@ -1,0 +1,18 @@
+#!/bin/bash
+
+# Volume Control and Notification
+send_notification_volume() {
+  VOLUME=$(pactl get-sink-volume @DEFAULT_SINK@ | cut -d "/" -f 2 | head -1)
+  dunstify -a "changevolume" -u low -r 9993 -h int:value:"$VOLUME" -i "volume-$1" "Volume: ${VOLUME}" -t 2000
+}
+
+if [ "$1" = "up" ]; then
+  pactl set-sink-volume @DEFAULT_SINK@ +5%
+  send_notification_volume up
+elif [ "$1" = "down" ]; then
+  pactl set-sink-volume @DEFAULT_SINK@ -5%
+  send_notification_volume down
+else
+  pactl set-sink-volume @DEFAULT_SINK@ toogle
+  send_notification_volume mute
+fi

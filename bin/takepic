@@ -1,0 +1,19 @@
+#!/bin/bash
+
+DEFAULT_DIRECTORY=$HOME/Imágenes
+
+OPTION_T=$1
+
+move_all_pics_directory() {
+   mv $PWD/*.png $DEFAULT_DIRECTORY
+}
+
+if [ "$OPTION_T" = "-s" ]; then
+  scrot -s 
+else
+  scrot
+fi
+
+move_all_pics_directory
+
+
