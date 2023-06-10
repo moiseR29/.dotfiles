@@ -45,7 +45,14 @@
     "editor.formatOnSave": true,
     "editor.defaultFormatter": "vscode.html-language-features"
   },
-  "workbench.iconTheme": "material-icon-theme",
+  "[terraform]": {
+    "editor.defaultFormatter": "hashicorp.terraform",
+    "editor.formatOnSave": true
+  },
+  "[terraform-vars]": {
+    "editor.defaultFormatter": "hashicorp.terraform",
+    "editor.formatOnSave": true,
+  },
   "terminal.integrated.shell.linux": "/usr/bin/zsh",
   "editor.tabSize": 2,
   "editor.renderWhitespace": "all",
@@ -198,8 +205,21 @@
   "vim.easymotionMarkerForegroundColorOneChar": "yellow",
   "vim.useSystemClipboard": true,
   "vim.easymotionMarkerBackgroundColor": "black",
-  "vim.vimrc.enable": true,
-  "vim.vimrc.path": "$HOME/.vimrc",
+  //"vim.vimrc.enable": true,
+  //"vim.vimrc.path": "$HOME/.vimrc",
   "editor.detectIndentation": true,
-  "window.zoomLevel": -1
+  "redhat.telemetry.enabled": true,
+  "todo-tree.highlights.customHighlight": {
+    "CHECK": {
+      "foreground": "black",
+      "iconColour": "yellow",
+      "gutterIcon": true
+    }
+  },
+  "security.workspace.trust.untrustedFiles": "open",
+  "window.zoomLevel": -1,
+  "workbench.iconTheme": "material-icon-theme",
+  "Lua.diagnostics.globals": [
+    "vim"
+  ]
 }
