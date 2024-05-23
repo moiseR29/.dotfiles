@@ -9,10 +9,21 @@ send_notification_volume() {
 if [ "$1" = "up" ]; then
   pactl set-sink-volume @DEFAULT_SINK@ +5%
   send_notification_volume up
+  BLT=$(pacmd list-sinks | grep bluez | grep -e "name:" | awk -F: '{ print $2}' | sed 's/<//' | sed 's/>//')
+  pactl set-sink-volume $BLT +5%
 elif [ "$1" = "down" ]; then
   pactl set-sink-volume @DEFAULT_SINK@ -5%
   send_notification_volume down
+  BLT=$(pacmd list-sinks | grep bluez | grep -e "name:" | awk -F: '{ print $2}' | sed 's/<//' | sed 's/>//')
+  pactl set-sink-volume $BLT -5%
+elif [ "$1" = "eq" ]; then
+  pactl set-sink-volume @DEFAULT_SINK@ 100%
+  send_notification_volume up
+  BLT=$(pacmd list-sinks | grep bluez | grep -e "name:" | awk -F: '{ print $2}' | sed 's/<//' | sed 's/>//')
+  pactl set-sink-volume $BLT 100%
 else
-  pactl set-sink-volume @DEFAULT_SINK@ toogle
+  pactl set-sink-mute @DEFAULT_SINK@ toggle
   send_notification_volume mute
+  BLT=$(pacmd list-sinks | grep bluez | grep -e "name:" | awk -F: '{ print $2}' | sed 's/<//' | sed 's/>//')
+  pactl set-sink-mute $BLT toggle
 fi

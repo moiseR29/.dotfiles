@@ -7,9 +7,9 @@ send_notification_bright() {
 }
 
 if [ "$1" = "up" ]; then
-  brightnessctl set +10% -q
+  brightnessctl set +5% -q
   send_notification_bright up
 else
-  brightnessctl set 10%- -q
+  brightnessctl set 5%- -q
   send_notification_bright down
 fi
