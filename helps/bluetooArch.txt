@@ -1,0 +1,20 @@
+sudo pacman -S bluez bluez-utils
+sudo pacman -S pulseaudio-bluetooth
+sudo systemctl status bluetooth
+sudo systemctl start bluetooth.service
+sudo systemctl enable bluetooth.service
+
+reboot ---
+sudo systemctl status bluetooth.service
+
+meterse en bluetoothctl
+
+bluetoothctl scan on
+bluetoothctl pair E8:EE:CC:23:75:3E
+bluetoothctl connect E8:EE:CC:23:75:3E
+
+
+otro comandos --
+bluetoothctl paired-devices
+
+sudo ln -s /lib/firmware/mediatek/BT_RAM_CODE_MT7961_1_2_hdr.bin.zst /lib/firmware/mediatek/BT_RAM_CODE_MT7961_1a_2_hdr.bin.zst

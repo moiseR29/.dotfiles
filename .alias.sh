@@ -3,21 +3,10 @@ alias update_console="source ~/.zshrc"
 alias osv="neofetch"
 alias grep='grep --color=auto'
 
-# brightnes control
-alias bright_up="sudo brightnessctl set +10%"
-alias bright_dw="sudo brightnessctl set 10%-"
-
 # apps alias
 alias n="nvim "
 alias nv="nvim ."
 alias move_branch="git fetch && git checkout " 
-
-# infra tools alias
-alias circle_local="circleci local execute --job "
-alias circle_valid="circleci config validate"
-alias ngrok_up="cd ~/infra-tools && ./ngrok http "
-alias kubectl="sudo kubectl"
-alias minikube="sudo minikube"
 
 # Conditional Alias
 if [ $(which bat) ]; then
@@ -49,6 +38,4 @@ fi
 if [ $(which exa) ]; then
   alias tree='exa -T'
 fi
-
-[[ -f ~/.dotfiles/.custom.sh ]] && source ~/.dotfiles/.custom.sh
 

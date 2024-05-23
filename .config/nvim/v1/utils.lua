@@ -5,6 +5,11 @@ function M.keymap(mode, key, result, options)
   vim.api.nvim_set_keymap(mode, key, result, options)
 end
 
+function M.vimKeyMap(mode, key, command, options)
+  options = options or { noremap = true, silent = true }
+  vim.keymap.set(mode, key, command, options)
+end
+
 function M.buf_keymap(buff, mode, key, result, options)
   options = options or { noremap = true, silent = true }
   vim.api.nvim_buf_set_keymap(buff, mode, key, result, options)

@@ -6,6 +6,8 @@ export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 export ZSH=$HOME/.oh-my-zsh
 
+# DEFAULT
+#ZSH_THEME="robbyrussell"
 ZSH_THEME="powerlevel10k/powerlevel10k"
 
 DISABLE_AUTO_TITLE="true"
@@ -24,3 +26,6 @@ export NVM_DIR="$HOME/.nvm"
 
 # Config alias 
 [[ -f $HOME/.dotfiles/.alias.sh ]] && source $HOME/.dotfiles/.alias.sh
+
+# Config user configuration
+[[ -f $HOME/.dotfiles/.user.sh ]] && source $HOME/.dotfiles/.user.sh

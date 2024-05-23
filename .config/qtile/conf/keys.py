@@ -77,7 +77,7 @@ keys = [
     Key([mod], "s", lazy.spawn("slack")),
     Key([mod], "n", lazy.spawn("notable")),
     Key([mod, CONTROL_KEY], "b", lazy.spawn("beekeeper-studio")),
-    Key([mod, CONTROL_KEY], "m", lazy.spawn("mailspring")),
+    Key([mod, CONTROL_KEY], "m", lazy.spawn("mongodb-compass")),
     Key([mod, CONTROL_KEY], "i", lazy.spawn("insonmia")),
     Key([mod, SHIFT_KEY], "i", lazy.spawn("postman")),
     # Screenshot

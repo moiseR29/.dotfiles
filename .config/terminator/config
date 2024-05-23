@@ -2,6 +2,7 @@
   window_state = maximise
   borderless = True
   extra_styling = False
+  suppress_multiple_term_dialog = True
 [keybindings]
 [profiles]
   [[default]]
@@ -25,6 +26,3 @@
       parent = ""
       type = Window
 [plugins]
-
-
-

@@ -62,7 +62,7 @@
     "source.fixAll.eslint": true
   },
   "window.menuBarVisibility": "toggle",
-  "terminal.integrated.fontFamily": "MesloLGS NF",
+  "terminal.integrated.fontFamily": "MesloLGS NF, Regular",
   "liveServer.settings.donotShowInfoMsg": true,
   "explorer.confirmDelete": false,
   "typescript.preferences.quoteStyle": "single",
@@ -217,9 +217,9 @@
     }
   },
   "security.workspace.trust.untrustedFiles": "open",
-  "window.zoomLevel": -1,
   "workbench.iconTheme": "material-icon-theme",
   "Lua.diagnostics.globals": [
     "vim"
-  ]
+  ],
+  "window.zoomLevel": -1
 }

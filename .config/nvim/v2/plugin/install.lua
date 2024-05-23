@@ -3,10 +3,10 @@ local Plug = vim.fn["plug#"]
 vim.call("plug#begin", "~/.local/share/nvim/plugged")
 
 -- for async code Lua
-Plug "nvim-lua/plenary.nvim"
+Plug "nvim-lua/plenary.nvim" -- *************
 
 -- iconst
-Plug "kyazdani42/nvim-web-devicons"
+Plug "kyazdani42/nvim-web-devicons" -- *************
 
 -- Theme
 Plug "moiseR29/base46"
@@ -19,17 +19,17 @@ Plug("akinsho/bufferline.nvim", { ["tag"] = "v2.*" })
 Plug "yggdroot/indentline"
 
 -- hexa in colors
-Plug "NvChad/nvim-colorizer.lua"
+Plug "NvChad/nvim-colorizer.lua" -- *************
 
 -- themes for languages
-Plug("nvim-treesitter/nvim-treesitter", { ["do"] = ":TSUpdate" })
+Plug("nvim-treesitter/nvim-treesitter", { ["do"] = ":TSUpdate" }) -- *************
 
 -- GIT PLUGINS
 -- for status and resolve merge
-Plug "tpope/vim-fugitive"
+Plug "tpope/vim-fugitive" -- *************
 
 -- git plugin for inspect commits
-Plug "lewis6991/gitsigns.nvim"
+Plug "lewis6991/gitsigns.nvim" -- *************
 
 -- line
 Plug "nvim-lualine/lualine.nvim"
@@ -59,13 +59,13 @@ Plug "hrsh7th/cmp-buffer"
 Plug "hrsh7th/cmp-path"
 
 -- autopair
-Plug "windwp/nvim-autopairs"
+Plug "windwp/nvim-autopairs" -- *************
 
 -- formatter and linter
 Plug "jose-elias-alvarez/null-ls.nvim"
 
 -- main page
-Plug "goolord/alpha-nvim"
+Plug "goolord/alpha-nvim" -- *************
 
 -- comment
 Plug "numToStr/Comment.nvim"
@@ -77,7 +77,7 @@ Plug "kyazdani42/nvim-tree.lua"
 Plug "nvim-telescope/telescope.nvim"
 
 -- for movements
-Plug "christoomey/vim-tmux-navigator"
+Plug "christoomey/vim-tmux-navigator" -- *************
 
 -- plugin for easy use more one lines *
 Plug("mg979/vim-visual-multi", { branch = "master" })

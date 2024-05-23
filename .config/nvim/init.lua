@@ -1,2 +1,2 @@
-require('common')
-require('plugin')
+require('moise.common')
+require('moise.lazy')
