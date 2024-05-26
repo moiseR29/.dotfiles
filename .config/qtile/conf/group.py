@@ -4,12 +4,11 @@ from libqtile.lazy import lazy
 from .keys import keys, mod, SHIFT_KEY
 
 # ORDERS
-# (nf-dev-terminal) Terminal
-# (nf-fa-code) Code
-# (nf-fa-code) Rest
-# (nf-fa-code) Navigator
-# (nf-fa-code) Databases - Others
-# (nf-fa-code) social - Social
+# (1) Terminal
+# (2) Code
+# (3) Databases
+# (4) Navigator
+# (5) Social
 group_configure = [
     (
         "1",

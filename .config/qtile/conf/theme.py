@@ -2,7 +2,8 @@ from os import path
 import json
 
 DEFAULT_THEME = "onedark"
-THEME = "rxyhn"
+#THEME = "rxyhn"
+THEME = "ayu-dark"
 
 
 def loadTheme():

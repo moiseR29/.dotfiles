@@ -15,6 +15,19 @@ def dockerVersion():
     else:
         return command.stdout.decode("UTF-8").strip()
 
+def currentVol():
+    command = subprocess.run(
+        'pactl get-sink-volume @DEFAULT_SINK@ | cut -d "/" -f 2 | head -1',
+        shell=True,
+        stdout=subprocess.PIPE,
+        stderr=subprocess.PIPE,
+    )
+    if command.returncode != 0:
+        error = command.stderr.decode("UTF-8")
+        return error
+    else:
+        return command.stdout.decode("UTF-8").strip()
+
 
 def detectSecondMonitor():
     commandXrandr = "xrandr | grep -w 'connected' | cut -d ' ' -f 2 | wc -l"

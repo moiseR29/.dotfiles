@@ -3,7 +3,7 @@ from libqtile.config import Screen
 
 from .theme import loadTheme
 from .keys import FONT
-from .commands import dockerVersion, detectSecondMonitor
+from .commands import dockerVersion, detectSecondMonitor, currentVol
 
 COLORS = loadTheme()
 
@@ -13,13 +13,12 @@ def os_icon(fontsize):
         **base("color3", "dark"), fontsize=fontsize, text="", padding=5
     )
 
-
 def base(fg="text", bg="dark"):
     return {"foreground": COLORS[fg], "background": COLORS[bg]}
 
 
 def separator(fg="text", bg="dark"):
-    return widget.Sep(**base(fg, bg), linewidth=0, padding=5)
+    return widget.Sep(**base(fg, bg), linewidth=0, padding=3)
 
 
 def icon(fg="text", bg="dark", fontsize=15, text="?", padding=3):
@@ -31,7 +30,7 @@ def texto(fg="text", bg="dark", fontsize=16, text="?"):
 
 
 def powerline(fg="text", bg="dark"):
-    return widget.TextBox(**base(fg, bg), text="", fontsize=60, padding=-11)
+    return widget.TextBox(**base(fg, bg), text="", fontsize=40, padding=0)
 
 
 def layoutSection(bg, arrowColor):
@@ -48,7 +47,7 @@ def commandsSection(bg, arrowColor):
         # icon(bg=bg, text="", fontsize=35, padding=0),
         # texto(bg=bg, text=getCurrentWifi(), fontsize=14),
         # separator(bg=bg),
-        icon(bg=bg, text="", fontsize=35, padding=0),
+        icon(bg=bg, text="", fontsize=30, padding=2),
         texto(bg=bg, text=dockerVersion(), fontsize=14),
         powerline(arrowColor, bg),
     ]
@@ -56,7 +55,7 @@ def commandsSection(bg, arrowColor):
 
 def utilitiesSection(bg, fg, arrowColor, include=False):
     boths = [
-        icon(bg=bg, fg=fg, text="", fontsize=30, padding=0),
+        icon(bg=bg, fg=fg, text="", fontsize=23, padding=0),
         widget.Memory(**base(bg=bg, fg=fg), measure_mem="G"),
         widget.Battery(
             **base(bg=bg, fg=fg),
@@ -65,8 +64,9 @@ def utilitiesSection(bg, fg, arrowColor, include=False):
             discharge_char="",
             font="MesloLGS NF",
         ),
-        icon(bg=bg, fg=fg, text="", fontsize=20),
-        widget.PulseVolume(**base(bg=bg, fg=fg)),
+        icon(bg=bg, fg=fg, text="", fontsize=18),
+        texto(bg=bg, fg=fg, text=currentVol(), fontsize=12),
+        #widget.PulseVolume(**base(bg=bg, fg=fg)),
     ]
 
     if include:
@@ -78,7 +78,7 @@ def utilitiesSection(bg, fg, arrowColor, include=False):
 
 def calendarSection(bg):
     return [
-        icon(bg=bg, text="", fontsize=25),
+        icon(bg=bg, text="", fontsize=20),
         widget.Clock(**base(bg=bg), format="%d/%m/%Y - %H:%M "),
     ]
 
@@ -89,7 +89,7 @@ def groupSpace():
         widget.GroupBox(
             **base(fg="light"),
             font=FONT,
-            fontsize=25,
+            fontsize=23,
             margin_y=3,
             margin_x=0,
             padding_y=8,
@@ -117,7 +117,7 @@ def groupSpace():
 
 primaryScreenBar = [
     # SO Log Section
-    os_icon(fontsize=35),
+    os_icon(fontsize=30),
     separator(),
     # Group Section
     *groupSpace(),
@@ -131,7 +131,7 @@ primaryScreenBar = [
 
 secondaryScreenBar = [
     # SO Log Section
-    os_icon(fontsize=40),
+    os_icon(fontsize=35),
     separator(),
     # Group Section
     *groupSpace(),
