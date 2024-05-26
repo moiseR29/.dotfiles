@@ -58,8 +58,8 @@
   "editor.renderWhitespace": "all",
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.codeActionsOnSave": {
-    "source.fixAll": false,
-    "source.fixAll.eslint": true
+    "source.fixAll": "never",
+    "source.fixAll.eslint": "explicit"
   },
   "window.menuBarVisibility": "toggle",
   "terminal.integrated.fontFamily": "MesloLGS NF, Regular",
@@ -221,5 +221,6 @@
   "Lua.diagnostics.globals": [
     "vim"
   ],
-  "window.zoomLevel": -1
+  "window.zoomLevel": -1,
+  "editor.fontFamily": "'MesloLGS NF','Droid Sans Mono', 'monospace', monospace"
 }
