@@ -6,7 +6,7 @@ local options = {
   clipboard = "unnamedplus", -- te permite compartir del clipboard del host
   expandtab = true, -- utilizar el tab en modo insert
   shiftwidth = 2, -- numeros de tab utilizados
-  smartindent = false, -- la sangria de pone automaticamente (*)
+  smartindent = true, -- la sangria de pone automaticamente (*)
   ignorecase = true, -- ignora mayusculas y minusculas en patrones de busqueda
   smartcase = true, -- ignora 'ignorecase' si el patro de busqueda contiene mayusculas
   mouse = "a", -- habilita el uso de mouse ( a = todos los modos)
@@ -27,23 +27,33 @@ local options = {
   --updatetime = 250,
   --errorbells = false,     -- REVIEW
   --backup = false, -- REVIEW
-  --completeopt = { "menuone", "noselect" },
+  completeopt = { "menuone", "noselect" },
+  --completeopt = { "menu", "menuone", "noselect", "preview" },
 }
 
 for k, v in pairs(options) do
   u.addOpt(k, v)
 end
 
--- Synax enable
---vim.cmd('syntax enable')
+-- auto cmd
+vim.cmd [[syntax enable]]
+vim.cmd [[filetype plugin indent on]]
 
---vim.cmd('filetype plugin indent on')
-
-local default_plugins = {
-  "syntax",
+vim.opt.list = true
+vim.opt.listchars = {
+  space = "⋅",
+  eol = " ", --"↴",
+  tab = "▎_",
+  -- tab = "|_>",
+  trail = "•",
+  extends = "❯",
+  precedes = "❮",
+  nbsp = "",
 }
-
-for _, plugin in pairs(default_plugins) do
-  vim.g["loaded_" .. plugin] = 1
-end
-
+vim.opt.fillchars = {
+  fold = " ",
+  foldsep = " ",
+  foldopen = "",
+  foldclose = "",
+  diff = "╱",
+}

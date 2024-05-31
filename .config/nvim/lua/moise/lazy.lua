@@ -14,12 +14,12 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
-  { import = "plugins.ui" },
-  { import = "plugins" },
-  { import = "plugins.git" },
-  { import = "plugins.sintax" },
-  { import = "plugins.cmp" },
-  { import = "plugins.lsp" },
+  { import = "moise.plugins.ui" },
+  { import = "moise.plugins" },
+  { import = "moise.plugins.git" },
+  { import = "moise.plugins.sintax" },
+  { import = "moise.plugins.cmp" },
+  { import = "moise.plugins.lsp" },
 }, {
   default = {
     lazy = true
