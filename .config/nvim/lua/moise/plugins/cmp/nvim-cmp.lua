@@ -27,14 +27,21 @@ return {
 
     require("luasnip.loaders.from_vscode").lazy_load()
 
-    local confirm_key = nil
-    cmp.event:on("confirm_done", function()
-      if confirm_key ~= nil then
-        vim.fn.feedkeys(confirm_key)
-      end
-    end)
+    --local confirm_key = nil
+    --cmp.event:on("confirm_done", function()
+    --  if confirm_key ~= nil then
+    --    vim.fn.feedkeys(confirm_key)
+    --  end
+    --end)
 
-    local confirm = function(fallback, key)
+    local skipConfirm = function(fallback)
+      if cmp.visible() then
+        return fallback()
+        --return cmp.config.disable
+      end
+    end
+
+    --[[ local confirm = function(fallback, key)
       if cmp.visible() then
         confirm_key = key
         return cmp.mapping.confirm {
@@ -44,7 +51,7 @@ return {
       else
         return fallback()
       end
-    end
+    end ]]
 
     cmp.setup {
       preselect = cmp.PreselectMode.None,
@@ -99,17 +106,21 @@ return {
           "i",
           "s",
         }),
-        ["<CR>"] = function(fallback)
-          return confirm(fallback, nil)
+        --["<CR>"] = function(fallback)
+        --  return confirm(fallback, nil)
+        --end,
+        ["<CR>"] = cmp.mapping.confirm {
+          select = true,
+          behavior = cmp.ConfirmBehavior.Insert,
+        },
+        --["<space>"] = function(fallback)
+        --  return skipConfirm(fallback)
+        --end,
+        [":"] = function(fallback)
+          return skipConfirm(fallback)
         end,
         ["."] = function(fallback)
-          return confirm(fallback, ".")
-        end,
-        [":"] = function(fallback)
-          return confirm(fallback, ":")
-        end,
-        [" "] = function(fallback)
-          return confirm(fallback, " ")
+          return skipConfirm(fallback)
         end,
         ["<C-y>"] = cmp.config.disable,
         ["<c-space>"] = cmp.mapping.complete(),
