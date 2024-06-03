@@ -34,12 +34,12 @@ return {
     --  end
     --end)
 
-    local skipConfirm = function(fallback)
+    --[[ local skipConfirm = function(fallback)
       if cmp.visible() then
         return fallback()
         --return cmp.config.disable
       end
-    end
+    end ]]
 
     --[[ local confirm = function(fallback, key)
       if cmp.visible() then
@@ -116,12 +116,12 @@ return {
         --["<space>"] = function(fallback)
         --  return skipConfirm(fallback)
         --end,
-        [":"] = function(fallback)
-          return skipConfirm(fallback)
-        end,
-        ["."] = function(fallback)
-          return skipConfirm(fallback)
-        end,
+        --[":"] = function(fallback)
+        --  return skipConfirm(fallback)
+        --end,
+        --["."] = function(fallback)
+        --  return skipConfirm(fallback)
+        --end,
         ["<C-y>"] = cmp.config.disable,
         ["<c-space>"] = cmp.mapping.complete(),
         --[[       ["C-j"] = function (fallback)

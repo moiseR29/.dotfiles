@@ -13,34 +13,42 @@ return {
       "nvim-telescope/telescope-file-browser.nvim",
       "nvim-telescope/telescope-ui-select.nvim",
       { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
-      "nvim-tree/nvim-web-devicons"
+      "nvim-tree/nvim-web-devicons",
     },
-    config = function ()
-      local u = require("utils")
-      local telescope = require("telescope")
-      local actions = require("telescope.actions")
+    config = function()
+      local u = require "utils"
+      local telescope = require "telescope"
+      local actions = require "telescope.actions"
 
-      telescope.setup({
+      telescope.setup {
         defaults = {
-          path_displat = {"truncate "},
+          path_displat = { "truncate " },
           mappings = {
             i = {
               ["<C-k>"] = actions.move_selection_previous, -- move to prev result
               ["<C-j>"] = actions.move_selection_next, -- move to next result
               ["<C-q>"] = actions.send_selected_to_qflist + actions.open_qflist,
-            }
+              ["<C-d>"] = actions.delete_buffer + actions.move_to_top,
+            },
           },
           file_ignore_patterns = { "node_modules", ".terraform", ".venv" },
         },
         pickers = {
           git_files = {
-            show_untracked = true
-          }
+            show_untracked = true,
+          },
+          buffers = {
+            mappigns = {
+              i = {
+                ["<C-d>"] = actions.delete_buffer + actions.move_to_top,
+              },
+            },
+          },
         },
         extensions = {
           fzy_native = {
             override_generic_sorter = true,
-            override_file_sort = true
+            override_file_sort = true,
           },
           ["ui-select"] = {
             require("telescope.themes").get_dropdown {
@@ -51,14 +59,14 @@ return {
               },
               width = 0.8,
               previewer = false,
-            }
-          }
-        }
-      })
+            },
+          },
+        },
+      }
 
-      telescope.load_extension("fzf")
-      telescope.load_extension("file_browser")
-      telescope.load_extension("ui-select")
+      telescope.load_extension "fzf"
+      telescope.load_extension "file_browser"
+      telescope.load_extension "ui-select"
 
       u.keymap("n", "<leader>tff", "<cmd>Telescope find_files<cr>", { desc = "Fuzzy find files in cwd" })
       --u.keymap("n", "<leader>tfg", "<cmd>Telescope live_grep<cr>", { desc = "Find string in cwd" })
@@ -74,7 +82,6 @@ return {
       u.keymap("n", "<leader>tgcb", "<cmd>Telescope git_bcommits<cr>", { desc = "Show git buffer commits" })
       u.keymap("n", "<leader>tb", "<cmd>Telescope buffers<cr>", { desc = "Show buffers" })
       u.keymap("n", "<leader>tm", "<cmd>Telescope file_browser<cr>", { desc = "Show file browser", noremap = true })
-    end
-  }
+    end,
+  },
 }
-
