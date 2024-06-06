@@ -13,7 +13,7 @@ return {
         markdown = { "prettier" },
         lua = { "stylua" },
         python = { "black" },
-        go = { "gofmt" },
+        go = { "goimports", "gofmt" },
       },
       format_on_save = {
         lsp_fallback = true,
