@@ -24,7 +24,7 @@ group_configure = [
         {
             "label": "",
             "layout": "columns",
-            "matches": [Match(wm_class=["code", "code-oss"])],
+            "matches": [Match(wm_class=["code", "code-oss", "vscodium"])],
         },
     ),
     (

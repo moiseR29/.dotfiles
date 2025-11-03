@@ -35,7 +35,8 @@ def powerline(fg="text", bg="dark"):
 
 def layoutSection(bg, arrowColor):
     return [
-        widget.CurrentLayoutIcon(**base(bg=bg), scale=0.65),
+        #widget.CurrentLayoutIcon(**base(bg=bg), scale=0.65),
+        widget.CurrentLayout(**base(bg=bg), scale=0.65),
         widget.CurrentLayout(**base(bg=bg), padding=5),
         # Docker Section
         powerline(arrowColor, bg),

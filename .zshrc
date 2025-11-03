@@ -29,3 +29,5 @@ export NVM_DIR="$HOME/.nvm"
 
 # Config user configuration
 [[ -f $HOME/.dotfiles/.user.sh ]] && source $HOME/.dotfiles/.user.sh
+
+alias code=vscodium
