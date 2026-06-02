@@ -13,7 +13,7 @@ isl15 = isL15()
 
 
 def whenStart():
-    commandsToExecuteWhenStart = ["setxkbmap latam"]
+    commandsToExecuteWhenStart = ["setxkbmap latam", "xmodmap ~/.Xmodmap &"]
 
     # configure second monitor
     if detectSecondMonitor() > 1:

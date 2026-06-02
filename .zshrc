@@ -31,3 +31,7 @@ export NVM_DIR="$HOME/.nvm"
 [[ -f $HOME/.dotfiles/.user.sh ]] && source $HOME/.dotfiles/.user.sh
 
 alias code=vscodium
+alias cursor=/opt/cursor/cursor.AppImage
+
+# opencode
+export PATH=/home/mrebatta/.opencode/bin:$PATH
