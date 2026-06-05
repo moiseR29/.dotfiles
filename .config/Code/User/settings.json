@@ -223,5 +223,6 @@
   ],
   "window.zoomLevel": -1,
   "editor.fontFamily": "'MesloLGS NF','Droid Sans Mono', 'monospace', monospace",
-  "diffEditor.ignoreTrimWhitespace": false
+  "diffEditor.ignoreTrimWhitespace": false,
+  "workbench.colorTheme": "Dark Modern"
 }

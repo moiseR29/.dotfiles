@@ -30,7 +30,7 @@ export NVM_DIR="$HOME/.nvm"
 # Config user configuration
 [[ -f $HOME/.dotfiles/.user.sh ]] && source $HOME/.dotfiles/.user.sh
 
-alias code=vscodium
+#alias code=vscodium
 alias cursor=/opt/cursor/cursor.AppImage
 
 # opencode
