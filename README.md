@@ -9,3 +9,5 @@ this repository has the configurations I currently use on my notebook, the opera
 ## Nvim
 
 pending...
+
+vim.tbl_flatten is deprecated. Run ":checkhealt vim.deprecated" for more information

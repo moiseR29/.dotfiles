@@ -9,7 +9,7 @@ return {
     local vscode = require("vscode")
 
     vscode.setup({
-        stype = 'dark',
+        style = 'dark',
         --transparent = false,,
         --disable_nvimtree_bg = false
         transparent = true,

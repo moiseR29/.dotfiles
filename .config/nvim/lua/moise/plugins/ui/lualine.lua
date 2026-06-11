@@ -12,7 +12,7 @@ return {
       red = "#DF5B61",
       purple = "#C488EC",
       grey = "#313c40",
-      turq = '33FFF0'
+      turq = '#33FFF0'
     }
 
     local rxyhn = {
@@ -42,7 +42,7 @@ return {
         lualine_a = { { "mode", upper = true } },
         lualine_b = { "diff", { "branch", icon = "" } },
         lualine_c = { { "filename", path = 1 } },
-        lualine_x = { { "diagnostics", sources = { "nvim_diagnostic" } }, "filetype" },
+        lualine_x = { { "diagnostics" }, "filetype" },
         lualine_y = { "lineinfo", "progress" },
         lualine_z = { "location" },
       },

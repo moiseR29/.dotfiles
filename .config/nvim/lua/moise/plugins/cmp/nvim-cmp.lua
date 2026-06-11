@@ -27,49 +27,13 @@ return {
 
     require("luasnip.loaders.from_vscode").lazy_load()
 
-    --local confirm_key = nil
-    --cmp.event:on("confirm_done", function()
-    --  if confirm_key ~= nil then
-    --    vim.fn.feedkeys(confirm_key)
-    --  end
-    --end)
-
-    --[[ local skipConfirm = function(fallback)
-      if cmp.visible() then
-        return fallback()
-        --return cmp.config.disable
-      end
-    end ]]
-
-    --[[ local confirm = function(fallback, key)
-      if cmp.visible() then
-        confirm_key = key
-        return cmp.mapping.confirm {
-          behavior = cmp.ConfirmBehavior.Insert,
-          select = true,
-        }(fallback)
-      else
-        return fallback()
-      end
-    end ]]
-
     cmp.setup {
       preselect = cmp.PreselectMode.None,
-      --completion = {
-      --  completeopt = "menuone,noselect",
-      --  --completeopt = "menu,menuone,noselect,preview",
-      --  keyword_length = 0,
-      --  autocomplete = true,
-      --},
       formatting = {
         format = lspkind.cmp_format {
           maxwidth = 50,
           ellipsis_char = "...",
         },
-        --format = function(_, vim_item)
-        --   vim_item.kind = string.format("%s %s", icons[vim_item.kind], vim_item.kind)
-        --   return vim_item
-        --end,
       },
       sources = cmp.config.sources {
         { name = "nvim_lsp" },
@@ -106,45 +70,13 @@ return {
           "i",
           "s",
         }),
-        --["<CR>"] = function(fallback)
-        --  return confirm(fallback, nil)
         --end,
         ["<CR>"] = cmp.mapping.confirm {
           select = true,
           behavior = cmp.ConfirmBehavior.Insert,
         },
-        --["<space>"] = function(fallback)
-        --  return skipConfirm(fallback)
-        --end,
-        --[":"] = function(fallback)
-        --  return skipConfirm(fallback)
-        --end,
-        --["."] = function(fallback)
-        --  return skipConfirm(fallback)
-        --end,
         ["<C-y>"] = cmp.config.disable,
         ["<c-space>"] = cmp.mapping.complete(),
-        --[[       ["C-j"] = function (fallback)
-          confirm_key = nil
-          if cmp.visible() then
-            return cmp.mapping.select_next_item { behavior = cmp.SelectBehavior.Select }(fallback)
-          else
-            return cmp.mapping.complete { reason = cmp.ContextReason.Auto }(fallback)
-          end
-        end,
-        ["C-k"] = function (fallback)
-          confirm_key = nil
-          if cmp.visible() then
-            return cmp.mapping.select_prev_item { behavior = cmp.SelectBehavior.Select }
-          else
-            fallback()
-          end
-        end ]]
-
-        --[[       ["<CR>"] = cmp.mapping.confirm({
-          select = true,
-          behavior = cmp.ConfirmBehavior.Insert,
-        }) ]]
       },
       snippet = {
         expand = function(args)

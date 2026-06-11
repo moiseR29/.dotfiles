@@ -9,7 +9,8 @@ return {
       topdelete = { hl = "DiffDelete", text = "‾", numhl = "GitSignsDeleteNr" },
       changedelete = { hl = "DiffChangeDelete", text = "~", numhl = "GitSignsChangeNr" },
     },
-    current_line_blame = true,
+    -- rendimiento - antes true
+    current_line_blame = false,
     on_attach = function (bufnr)
       local gitsigns = require("gitsigns")
       vim.keymap.set("n", "<leader>gsp", gitsigns.preview_hunk, { buffer = bufnr })

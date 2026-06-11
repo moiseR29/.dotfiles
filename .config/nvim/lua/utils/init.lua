@@ -2,12 +2,15 @@ local M = {}
 
 function M.keymap(mode, key, result, options)
   options = options or { noremap = true, silent = true }
-  vim.api.nvim_set_keymap(mode, key, result, options)
+  -- vim.api.nvim_set_keymap(mode, key, result, options)
+  vim.keymap.set(mode, key, result, options)
 end
 
 function M.buf_keymap(buff, mode, key, result, options)
   options = options or { noremap = true, silent = true }
-  vim.api.nvim_buf_set_keymap(buff, mode, key, result, options)
+  --vim.api.nvim_buf_set_keymap(buff, mode, key, result, options)
+  options.buffer = buff
+  vim.keymap.set(mode, key, result, options)
 end
 
 function M.keymapFunction(mode, key, result, options)
