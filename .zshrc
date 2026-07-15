@@ -34,4 +34,4 @@ export NVM_DIR="$HOME/.nvm"
 alias cursor=/opt/cursor/cursor.AppImage
 
 # opencode
-export PATH=/home/mrebatta/.opencode/bin:$PATH
+export PATH=$HOME/.opencode/bin:$PATH

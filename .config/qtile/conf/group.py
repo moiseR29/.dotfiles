@@ -33,7 +33,7 @@ group_configure = [
             "label": "ﱲ",
             "layout": "columns",
             "matches": [
-                Match(wm_class=["insomnia", "notable", "beekeeper-studio", "postman", "mongodb-compass"])
+                Match(wm_class=["insomnia", "notable", "beekeeper-studio", "postman", "mongodb-compass", "plinth"])
             ],
         },
     ),

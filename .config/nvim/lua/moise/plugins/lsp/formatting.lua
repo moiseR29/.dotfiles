@@ -12,7 +12,7 @@ return {
         typescript = { "prettier" },
         json = { "prettier" },
         yaml = { "prettier" },
-        markdown = { "prettier" },
+        -- markdown = { "prettier" },
         lua = { "stylua" },
         python = { "black" },
         go = { "goimports", "gofmt" },

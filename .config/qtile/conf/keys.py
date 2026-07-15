@@ -84,6 +84,7 @@ keys = [
     Key([mod], "d", lazy.spawn("discord")),
     Key([mod], "s", lazy.spawn("slack")),
     Key([mod], "n", lazy.spawn("notable")),
+    Key([mod, SHIFT_KEY], "n", lazy.spawn("plinth")),
     Key([mod, CONTROL_KEY], "b", lazy.spawn("beekeeper-studio")),
     Key([mod, CONTROL_KEY], "m", lazy.spawn("mongodb-compass")),
     Key([mod, CONTROL_KEY], "i", lazy.spawn("insonmia")),
